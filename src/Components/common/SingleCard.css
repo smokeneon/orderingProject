@@ -1,0 +1,76 @@
+.Cards{
+   
+}
+
+.singlecard{
+    width: 18rem;
+    height: 23rem;
+    background-color:#fff;
+    margin: 2rem 1.6rem 0 0;
+    display: inline-block;
+}
+
+.singlecard_pic{
+    height: 17rem;
+    -moz-box-shadow:3px 3px 5px #f4f5f5;
+    -webkit-box-shadow:3px 3px 5px #f4f5f5; 
+    box-shadow:3px 3px 5px #f4f5f5;
+
+}
+
+.singlecard_pic img{
+    width: 100%;
+    height: 100%;
+}
+
+
+.singlecard_content{
+    height: 6rem;
+
+}
+
+.singlecard_content .food_name{
+   padding:0.5rem 0.5rem 0.5rem 1rem;
+   text-align: left;
+}
+
+.singlecard_content .food_name span{
+    font-size: 1.2rem;
+    color:#333;
+}
+
+.singlecard_content .food_message{
+    text-align: left;
+}
+
+.singlecard_content .food_message .food_price{
+    display: inline-block;
+    width: 60%;
+    padding:0.5rem 0.5rem 0.5rem 1rem;
+    /* background-color: red; */
+}
+
+.singlecard_content .food_message .food_price span{
+    color: #D9272E;
+    font-weight: 900;
+    font-size: 1.5rem;
+}
+
+.singlecard_content .food_message .food_order{
+    display: inline-block;
+    width: 40%;
+    padding:0.5rem 0.5rem 0.5rem 0.8rem;
+    /* background-color: blue; */
+    float: right;
+}
+
+/* 分页样式 */
+
+.pagination{
+    width: 100%;
+    padding: 2rem 0 2rem 0;
+}
+
+.pagination .layout{
+    margin: 0 auto;
+}
