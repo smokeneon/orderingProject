@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Row, Col, Icon ,Menu,Modal,Button} from 'antd';
+import { Row, Col, Icon ,Menu} from 'antd';
 import './Header.css';
 import logo from '../../static/logo.png';
 import {connect} from 'react-redux';
 import * as actionCreators from '../../store/actionCreator';
+import LoginOrRegister from './LoginOrRegister';
 
 const { SubMenu } = Menu;
 class Header extends Component {
@@ -37,13 +38,15 @@ class Header extends Component {
                                 <Col offset={8} xs={12} sm={12} md={12} lg={12} xl={12} justify="end">
                                 <Menu onClick={this.handleClick}  mode="horizontal"　style={{"borderBottom": "none","display":"flex","flexDirection": "row-reverse"}}>
                                  
+                                   
                                     <Menu.Item key="alipay">
+                                    <a onClick={this.props.showModal}>
                                     <span className="inner_userBtn">
-                                        <a onClick={this.props.showModal}><Icon type="login" />　登录 / 注册</a>
-                                        {this.props.modalVisible}
+                                        <Icon type="login" />　登录 / 注册
                                         </span>
+                                    </a>
                                     </Menu.Item>
-                                
+                                    
                                     <SubMenu
                                     title={
                                         <span className="inner_userBtn">
@@ -60,6 +63,9 @@ class Header extends Component {
 
                                   
                                 </Menu>
+                                {/*  */}
+                                {/* 通过this.props.showModal进行显示Modal */}
+                                {this.props.modalVisible? <LoginOrRegister /> : ''}
                                    
                                 </Col>
                                 </div>

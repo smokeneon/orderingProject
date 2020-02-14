@@ -1,0 +1,68 @@
+/* 登录区域 */
+.LoginAndRegister_title{
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+.Login_main{
+    padding: 0.5rem 2rem 2rem 2rem;
+}
+
+.Login_main Input{
+    margin: 1rem 0;
+    height: 40px;
+}
+
+.Login_main Button{
+    margin: 1rem 0;
+    width: 100%;
+    height: 40px;
+    border-radius: 6px;
+}
+
+.forget_password{
+    text-align: right;
+}
+.forget_password:hover{
+    color: #D9272E;
+    cursor: pointer;
+}
+.to_register{
+    text-align: center;
+}
+.to_register:hover{
+    color: #D9272E;
+    cursor: pointer;
+}
+/* 注册区域 */
+.Register_main{
+    padding: 0.5rem 2rem 2rem 2rem;
+}
+
+.Register_main Input{
+    margin: 1rem 0;
+    height: 40px;
+}
+
+.Register_main Button{
+    margin: 1rem 0;
+    width: 100%;
+    height: 40px;
+    border-radius: 6px;
+}
+.Register_main .register_code{
+    width: 70%;
+    display: inline-block;
+}
+.Register_main .register_btn{
+    width: 30%;
+    display: inline-block;
+}
+
+.to_login{
+    text-align: center;
+}
+.to_login:hover{
+    color: #D9272E;
+    cursor: pointer;
+}
