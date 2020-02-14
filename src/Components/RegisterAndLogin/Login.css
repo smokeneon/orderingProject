@@ -1,0 +1,34 @@
+.Login_main{
+    padding: 0.5rem 2rem 0rem 2rem;
+}
+.Login_main .Login_title{
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.Login_main  Input{
+    /* height: 40px; */
+    margin:0.3rem 0 0 0;
+}
+
+.Login_main  Button{
+    height: 40px;
+    width: 100%;
+}
+
+.forget_password{
+    text-align: right;
+    
+}
+.forget_password:hover{
+    color: #D9272E;
+    cursor: pointer;
+}
+.to_register{
+    text-align: center;
+}
+.to_register:hover{
+    color: #D9272E;
+    cursor: pointer;
+}

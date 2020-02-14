@@ -10,3 +10,5 @@ const { override, fixBabelImports, addLessLoader } = require('customize-cra');
            modifyVars: { '@primary-color': '#D9272E' },
          }),
      );
+    //  #FFBC0D
+    // #D9272E

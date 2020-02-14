@@ -4,7 +4,7 @@ import './Header.css';
 import logo from '../../static/logo.png';
 import {connect} from 'react-redux';
 import * as actionCreators from '../../store/actionCreator';
-import LoginOrRegister from './LoginOrRegister';
+import LoginOrRegisterModal from '../RegisterAndLogin/LoginOrRegisterModal';
 
 const { SubMenu } = Menu;
 class Header extends Component {
@@ -65,7 +65,7 @@ class Header extends Component {
                                 </Menu>
                                 {/*  */}
                                 {/* 通过this.props.showModal进行显示Modal */}
-                                {this.props.modalVisible? <LoginOrRegister /> : ''}
+                                {this.props.modalVisible? <LoginOrRegisterModal /> : ''}
                                    
                                 </Col>
                                 </div>

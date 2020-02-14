@@ -1,0 +1,29 @@
+.Register_main{
+    padding: 0.5rem 2rem 0rem 2rem;
+}
+
+.Register_main .Register_title{
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.Register_main  Input{
+    /* height: 40px; */
+    margin:0.3rem 0 0 0;
+}
+
+.Register_main  Button{
+    height: 40px;
+    width: 100%;
+}
+
+.register_code{
+    display: inline-block;
+    width: 70%;
+}
+
+.register_btn{
+    display: inline-block;
+    width: 30%;
+}
