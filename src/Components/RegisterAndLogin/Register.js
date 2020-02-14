@@ -1,21 +1,44 @@
 import React from 'react'
-import { Form, Icon, Input, Button, Tooltip } from 'antd';
+import { Form, Icon, Input, Button, Tooltip,message } from 'antd';
 import './Register.css';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actionCreator';
 
 class NormalLoginForm extends React.Component {
     state = {
+        allowSendCode:true,
         userEmailInput : '',
+
     }
     handleSubmit = e => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                console.log('Received values of form: ', values);
+                message.error('发生错误：',values)
+                // console.log('Received values of form: ', values);
             }
         });
     };
+
+    allowBtnSend = e => {
+        if(this.state.allowSendCode){
+            this.setState({
+                allowSendCode:false
+            })
+            this.props.getRegisterCode(this.state.userEmailInput)
+            setTimeout(()=>{
+                this.setState({
+                    allowSendCode:true
+                })
+            },10000)
+        }else{
+            
+            message.warning('频率过快，请一分钟后重新发送！');
+          
+        }
+    }
+
+
 
     render() {
         const { getFieldDecorator } = this.props.form;
@@ -86,7 +109,11 @@ class NormalLoginForm extends React.Component {
                                 />
                                 </span>
                                 <span className="register_btn">
-                                    <Button　onClick={()=>this.props.getRegisterCode(this.state.userEmailInput)}>获取验证码</Button>
+                                    {
+                                        this.state.allowSendCode ?  <Button　onClick={this.allowBtnSend}>获取验证码</Button> 
+                                        : <Button onClick={this.allowBtnSend} type="default"><Icon type="loading" /></Button>
+                                    }
+                                   
                                 </span>
                             </div>
 
