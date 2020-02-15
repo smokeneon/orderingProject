@@ -19,6 +19,15 @@ export const toLoginMain = () => ({
     type: actionTypes.TO_LOGIN_MAIN
 })
 
+// 获取验证码button状态，从false改为true
+
+export const changeGetCodeBtnToTrue =()=>({
+    type:actionTypes.CHANGE_GETCODE_BTN_TO_TRUE
+})
+
+export const changeGetCodeBtnToFalse =()=>({
+    type:actionTypes.CHANGE_GETCODE_BTN_TO_FALSE
+})
 // 获取验证码接口
 export const getRegisterCode = (email) => {
     console.log('xxxx'+email);

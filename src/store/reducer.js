@@ -3,7 +3,8 @@ import * as actionTypes from './actionTypes'
 
 const defaultState = fromJS({
     modalVisible:false,
-    showRegisterOrLoginMain:false
+    showRegisterOrLoginMain:false,
+    allowSendCode:true
 });
 
 export default (state=defaultState,action) => {
@@ -17,7 +18,11 @@ export default (state=defaultState,action) => {
         case actionTypes.TO_REGISTER_MAIN:
             return state.set('showRegisterOrLoginMain',true);
         case actionTypes.TO_LOGIN_MAIN:
-            return state.set('showRegisterOrLoginMain',false)
+            return state.set('showRegisterOrLoginMain',false);
+        case actionTypes.CHANGE_GETCODE_BTN_TO_TRUE:
+            return state.set('allowSendCode',true);
+        case actionTypes.CHANGE_GETCODE_BTN_TO_FALSE:
+            return state.set('allowSendCode',false)
         default:
             return state;
     }

@@ -6,7 +6,6 @@ import * as actionCreators from '../../store/actionCreator';
 
 class NormalLoginForm extends React.Component {
     state = {
-        allowSendCode:true,
         userEmailInput:'',
 
     }
@@ -30,15 +29,11 @@ class NormalLoginForm extends React.Component {
             message.warning('请填写正确的注册邮箱');
         }else{
             if(errorReturnMessage === undefined){
-                if(this.state.allowSendCode){
-                    this.setState({
-                        allowSendCode:false
-                    })
+                if(this.props.allowSendCode){
+                    this.props.changeGetCodeBtnToFalse()
                     this.props.getRegisterCode(this.state.userEmailInput)
                     setTimeout(()=>{
-                        this.setState({
-                            allowSendCode:true
-                        })
+                        this.props.changeGetCodeBtnToTrue()
                     },10000)
                 }else{
                     message.warning('频率过快，请一分钟后重新发送！');
@@ -122,9 +117,8 @@ class NormalLoginForm extends React.Component {
                                 </span>
                                 <span className="register_btn">
                                     {
-                                        this.state.allowSendCode ?  <Button onClick={this.allowBtnSend} >获取验证码</Button> 
+                                        this.props.allowSendCode ?  <Button onClick={this.allowBtnSend} >获取验证码</Button> 
                                         : <Button disabled>获取验证码</Button>
-                                        // <Button onClick={this.allowBtnSend} type="default"><Icon type="loading" /></Button>
                                     }
                                    
                                 </span>
@@ -148,6 +142,11 @@ class NormalLoginForm extends React.Component {
 
 const WrappedNormalRegisterForm = Form.create({ name: 'normal_login' })(NormalLoginForm);
 
+const mapStateToProps = (state, ownProps) => {
+    return {
+        allowSendCode: state.get('allowSendCode')
+    }
+}
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -158,7 +157,14 @@ const mapDispatchToProps = (dispatch) => {
             // console.log(value.props.value)
             let email = value.props.value;
             dispatch(actionCreators.getRegisterCode(email))
+        },
+        // 改变获取验证码按钮的状态
+        changeGetCodeBtnToTrue:()=>{
+            dispatch(actionCreators.changeGetCodeBtnToTrue())
+        },
+        changeGetCodeBtnToFalse:()=>{
+            dispatch(actionCreators.changeGetCodeBtnToFalse())
         }
     }
 }
-export default connect(null, mapDispatchToProps)(WrappedNormalRegisterForm);
+export default connect(mapStateToProps, mapDispatchToProps)(WrappedNormalRegisterForm);
