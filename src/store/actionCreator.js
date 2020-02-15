@@ -30,9 +30,9 @@ export const changeGetCodeBtnToFalse =()=>({
 })
 // 获取验证码接口
 export const getRegisterCode = (email) => {
-    console.log('xxxx'+email);
+    // console.log('xxxx'+email);
     
-    console.log(Qs.stringify(email))
+    // console.log(Qs.stringify(email))
     return (dispatch) => {
         let data = {
             email:email
@@ -44,7 +44,7 @@ export const getRegisterCode = (email) => {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
-            url:'/vccode',
+            url:'/api/vccode',
             data:Qs.stringify(data)
         }).then((res)=>{
             message.success(res.data.message);
@@ -54,7 +54,30 @@ export const getRegisterCode = (email) => {
         }).catch((error)=>{
             // console.log(error);
             dispatch(changeGetCodeBtnToTrue)
-            // message.error('失败,请稍后重试。',error);
+            message.error('失败,请稍后重试。',error);
+            
+        })
+    }
+}
+
+export const toRegister = (RegisterObject)=>{
+    console.log('actioncreateor');
+    
+    console.log(RegisterObject);
+    
+    return (dispatch) => {
+        let data = RegisterObject;
+        axios({
+            method:'post',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            url:'/api/register',
+            data:Qs.stringify(data)
+        }).then((res)=>{
+            message.success(res.data.message);
+        }).catch((error)=>{
+            message.error('注册失败：',error);
             
         })
     }

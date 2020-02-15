@@ -14,17 +14,19 @@ class NormalLoginForm extends React.Component {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                message.error('发生错误：',values)
+               
+                console.log('Received values of form: ', values);
+                this.props.toRegister(values);
             }
         });
     };
 
     allowBtnSend = e => {
-        // console.log(this.props.form.getFieldError('username'))
+        // console.log(this.props.form.getFieldError('email'))
         // 通过查询antd官方API发现this.props.form有getFieldError属性，可以获取到错误，从而判断，邮箱栏未输入正确的情况下不可以执行获取验证码
-        let errorReturnMessage = this.props.form.getFieldError('username');
+        let errorReturnMessage = this.props.form.getFieldError('email');
         // 通过getFieldValue获取初始值
-        let isEmptyMail = this.props.form.getFieldValue('username');
+        let isEmptyMail = this.props.form.getFieldValue('email');
         if(isEmptyMail === undefined){
             message.warning('请填写正确的注册邮箱');
         }else{
@@ -56,7 +58,7 @@ class NormalLoginForm extends React.Component {
                 <Form onSubmit={this.handleSubmit} className="login-form">
 
                     <Form.Item>
-                        {getFieldDecorator('username', {
+                        {getFieldDecorator('email', {
                             rules: [{ pattern: '^\\s*\\w+(?:\\.{0,1}[\\w-]+)*@[a-zA-Z0-9]+(?:[-.][a-zA-Z0-9]+)*\\.[a-zA-Z]+\\s*$', message: '请输入正确的邮箱!' }
                                     ,{ required: true, message: '注册邮箱不能为空' }],
                         })(
@@ -130,7 +132,7 @@ class NormalLoginForm extends React.Component {
                     <Form.Item>
                         <Button type="primary" htmlType="submit" className="login-form-button">
                             注　册
-                    </Button>
+                        </Button>
                         <div className="to_register" onClick={this.props.toLoginMain}>立即登录</div>
                     </Form.Item>
                 </Form>
@@ -164,6 +166,13 @@ const mapDispatchToProps = (dispatch) => {
         },
         changeGetCodeBtnToFalse:()=>{
             dispatch(actionCreators.changeGetCodeBtnToFalse())
+        },
+        toRegister:(RegisterObject)=>{
+            console.log('register ');
+            console.log(RegisterObject);
+            
+            
+            dispatch(actionCreators.toRegister(RegisterObject))
         }
     }
 }
