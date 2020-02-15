@@ -7,35 +7,47 @@ import * as actionCreators from '../../store/actionCreator';
 class NormalLoginForm extends React.Component {
     state = {
         allowSendCode:true,
-        userEmailInput : '',
+        userEmailInput:'',
 
     }
+    // 表单提交前校验
     handleSubmit = e => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 message.error('发生错误：',values)
-                // console.log('Received values of form: ', values);
             }
         });
     };
 
     allowBtnSend = e => {
-        if(this.state.allowSendCode){
-            this.setState({
-                allowSendCode:false
-            })
-            this.props.getRegisterCode(this.state.userEmailInput)
-            setTimeout(()=>{
-                this.setState({
-                    allowSendCode:true
-                })
-            },10000)
+        // console.log(this.props.form.getFieldError('username'))
+        // 通过查询antd官方API发现this.props.form有getFieldError属性，可以获取到错误，从而判断，邮箱栏未输入正确的情况下不可以执行获取验证码
+        let errorReturnMessage = this.props.form.getFieldError('username');
+        // 通过getFieldValue获取初始值
+        let isEmptyMail = this.props.form.getFieldValue('username');
+        if(isEmptyMail === undefined){
+            message.warning('请填写正确的注册邮箱');
         }else{
-            
-            message.warning('频率过快，请一分钟后重新发送！');
-          
+            if(errorReturnMessage === undefined){
+                if(this.state.allowSendCode){
+                    this.setState({
+                        allowSendCode:false
+                    })
+                    this.props.getRegisterCode(this.state.userEmailInput)
+                    setTimeout(()=>{
+                        this.setState({
+                            allowSendCode:true
+                        })
+                    },10000)
+                }else{
+                    message.warning('频率过快，请一分钟后重新发送！');
+                }
+            }else{
+                message.error(errorReturnMessage);
+            }
         }
+
     }
 
 
@@ -110,8 +122,9 @@ class NormalLoginForm extends React.Component {
                                 </span>
                                 <span className="register_btn">
                                     {
-                                        this.state.allowSendCode ?  <Button　onClick={this.allowBtnSend}>获取验证码</Button> 
-                                        : <Button onClick={this.allowBtnSend} type="default"><Icon type="loading" /></Button>
+                                        this.state.allowSendCode ?  <Button onClick={this.allowBtnSend} >获取验证码</Button> 
+                                        : <Button disabled>获取验证码</Button>
+                                        // <Button onClick={this.allowBtnSend} type="default"><Icon type="loading" /></Button>
                                     }
                                    
                                 </span>
@@ -119,8 +132,6 @@ class NormalLoginForm extends React.Component {
 
                         )}
                     </Form.Item>
-
-
 
                     <Form.Item>
                         <Button type="primary" htmlType="submit" className="login-form-button">
@@ -131,6 +142,7 @@ class NormalLoginForm extends React.Component {
                 </Form>
             </div>
         );
+
     }
 }
 
