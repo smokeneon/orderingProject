@@ -1,0 +1,14 @@
+.cartBannerMain{
+    height: 12rem;
+    /* background-color: royalblue; */
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+}
+.cartBannerMain .cartBannerMainTitle{
+    font-size: 2rem;
+    color: #07111b;
+    text-align: left;
+    align-items: center;
+    margin:0 2rem 0 0;
+}

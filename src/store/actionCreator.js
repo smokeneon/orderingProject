@@ -47,16 +47,14 @@ export const getRegisterCode = (email) => {
             url:'/vccode',
             data:Qs.stringify(data)
         }).then((res)=>{
-            // console.log(res.data.success);
-            // dispatch(toRegister(res.data.success));
             message.success(res.data.message);
             // history.push('/#/');
             // setTimeout( ()=>  history.go(),1600);
-            console.log(res)
+            // console.log(res)
         }).catch((error)=>{
-            console.log(error);
-            
-            message.error('失败,请稍后重试。',error);
+            // console.log(error);
+            dispatch(changeGetCodeBtnToTrue)
+            // message.error('失败,请稍后重试。',error);
             
         })
     }

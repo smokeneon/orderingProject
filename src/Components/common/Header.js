@@ -5,6 +5,7 @@ import logo from '../../static/logo.png';
 import {connect} from 'react-redux';
 import * as actionCreators from '../../store/actionCreator';
 import LoginOrRegisterModal from '../RegisterAndLogin/LoginOrRegisterModal';
+import { Link } from 'react-router-dom';
 
 const { SubMenu } = Menu;
 class Header extends Component {
@@ -55,7 +56,8 @@ class Header extends Component {
                                     }
                                     >
                                     <Menu.ItemGroup>
-                                        <Menu.Item key="setting:1">我的订单</Menu.Item>
+                                        
+                                        <Menu.Item key="setting:1"><Link to="/shoppingcart">我的购物车</Link></Menu.Item>
                                         <Menu.Item key="setting:2">我购买的商品</Menu.Item>
                                     </Menu.ItemGroup>
                                    

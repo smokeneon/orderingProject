@@ -58,7 +58,7 @@ class NormalLoginForm extends React.Component {
                     <Form.Item>
                         {getFieldDecorator('username', {
                             rules: [{ pattern: '^\\s*\\w+(?:\\.{0,1}[\\w-]+)*@[a-zA-Z0-9]+(?:[-.][a-zA-Z0-9]+)*\\.[a-zA-Z]+\\s*$', message: '请输入正确的邮箱!' }
-                                    ,{ required: true, message: '昵称不能为空' }],
+                                    ,{ required: true, message: '注册邮箱不能为空' }],
                         })(
                             // 登录
                             <Input

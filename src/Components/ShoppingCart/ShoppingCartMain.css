@@ -1,0 +1,103 @@
+.shoppingcartPage{
+    min-height: 55vh;
+    margin-bottom: 1rem;
+}
+.shoppingcartmain{
+    width: 100%;
+    min-height: 35rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px 0 rgba(7,17,27,.1);
+   
+}
+/* 购物车为空时的显示内容　start */
+.shoppingcartmain .shoppingcart_empty{
+    min-height: 35rem;
+    display: flex;
+    align-items: center;
+   
+}
+.shoppingcartmain .shoppingcart_empty span{
+    align-items: center;
+    font-size: 1.5rem;
+    color: #07111b;
+    margin: auto;
+}
+/*  end */
+
+/* 购物车的头 */
+.shoppingcartmain .shoppingcart_header{
+    padding: 3.2rem;
+    height: 7rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #EAEAEF;
+    
+}
+
+.shoppingcartmain .shoppingcart_header span{
+    align-items: center;
+    display: inline-block;
+    text-align: left;
+}
+.shoppingcartmain .choose{
+   width: 10%;
+}
+
+
+
+.shoppingcartmain .food{
+    width: 50%;
+}
+.shoppingcartmain .shoppingcart_header .food{
+    padding-left: 2rem;
+}
+
+.shoppingcartmain .mount{
+    width: 20%;
+}
+
+.shoppingcartmain .money{
+    width: 10%;
+}
+.shoppingcartmain .option{
+    width: 10%;
+}
+
+/* 购物车的内容区域 */
+.shoppingcartmain .shoppingcart_content{
+    padding:1rem 3.2rem;
+}
+.shoppingcartmain .shoppingcart_content .content_area{
+    height: 10rem;
+    display: flex;
+    align-items: center;
+}
+.shoppingcart_content .content_area .single_foods{
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid #EAEAEF;
+}
+.shoppingcart_content .content_area .single_foods span{
+    align-items: center;
+    display: inline-block;
+}
+.shoppingcart_content .content_area .single_foods img{
+    align-items: center;
+    width: 8rem;
+    height: 8rem;
+}
+
+.single_foods > span{
+    padding-left: 0.2rem;
+}
+.shoppingcart_content .content_area .single_foods .food_name{
+    color: #07111b;
+    font-size: 1.2rem;
+    padding-left: 1rem;
+}
+.single_foods .money .howmuch{
+    font-weight: bolder;
+    font-size: 1rem;
+    color: #07111b;
+}

@@ -1,16 +1,17 @@
 import React from 'react';
 import './App.css';
 import Header from './Components/common/Header';
-import Home from './Page/Home'
-import {Provider} from 'react-redux'
-import store from './store'
+import Home from './Page/Home';
+import ShoppingCart from './Page/ShoppingCart';
+import { HashRouter, Route, Redirect } from 'react-router-dom';
 function App() {
   return (
     <div className="App">
-      <Provider store={store}>
+      <HashRouter>
         <Header />
-        <Home />
-      </Provider>
+        <Route path='/' exact component={Home} ></Route>
+        <Route path='/shoppingCart' exact component={ShoppingCart}></Route>
+      </HashRouter>
     </div>
   );
 }
