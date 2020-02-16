@@ -1,19 +1,24 @@
 import React, { Component } from 'react'
 import './Classification.css';
-import { Menu, Icon } from 'antd';
-
-const { SubMenu } = Menu;
+import { Menu, Affix } from 'antd';
 
 export default class Classification extends Component {
+    state = {
+        top: 10,
+        bottom: 10,
+      };
+    
     handleClick = e => {
         console.log('click ', e);
       };
     render() {
         return (
             <>
+              <Affix offsetTop={this.state.top}>
                 <div className="classification_content">
                     <div className="classification_area">
-                        <Menu
+                  
+                    <Menu
                             onClick={this.handleClick}
                           
                             defaultSelectedKeys={['1']}
@@ -37,6 +42,7 @@ export default class Classification extends Component {
                         </Menu>
                     </div>
                 </div>
+                </Affix>
             </>
         )
     }
