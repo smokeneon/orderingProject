@@ -1,11 +1,8 @@
-.ant-carousel .slick-slide {
-    margin-top: 2rem;
-    text-align: center;
-    background: #f4f5f5;
-    overflow: hidden;
-  }
-
-  
+.rotationChartMain{
+  margin: 2rem 0 2rem 0;
+  background: #f4f5f5;
+  overflow: hidden;
+}
   .ant-carousel .slick-slide img {
     width: 100%;
     height: 100%;

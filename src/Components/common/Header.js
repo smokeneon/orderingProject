@@ -30,9 +30,12 @@ class Header extends Component {
                             <div className="Header_header_inner">
                                 {/* logo */}
                                 <Col xs={4} sm={4} md={4} lg={4} xl={4}>
-                                    <span className="inner_logo">
-                                        <img alt="" src={logo}></img>
-                                    </span>
+                                    <Link to="/">
+                                        <span className="inner_logo">
+                                            <img alt="" src={logo}></img>
+                                        </span>
+                                    </Link>
+                                    
                                 </Col>
                                 {/* 用户按钮 */}
                                 <div className="inner_part">

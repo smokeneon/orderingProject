@@ -11,6 +11,7 @@ class RotationChart  extends Component {
     render() {
         return (
             <>
+                <div className="rotationChartMain">
                 <Carousel autoplay>
                     <div>
                         <img src={pic1} alt=""></img>
@@ -25,6 +26,8 @@ class RotationChart  extends Component {
                         <img src={pic4} alt=""></img>
                     </div>
                 </Carousel>
+                </div>
+               
             </>
         )
     }

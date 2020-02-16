@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import './SingleCard.css';
-import {Button,Pagination} from 'antd';
+import {Button} from 'antd';
 
 
 class SingleCard extends Component{
@@ -144,11 +144,11 @@ class SingleCard extends Component{
             </div>
 
             {/* 分页 */}
-            <div className="pagination">
+            {/* <div className="pagination">
                 <div className="layout">
                     <Pagination defaultCurrent={1} total={50} />
                 </div>
-            </div>
+            </div> */}
             </>
         )
     }

@@ -1,0 +1,13 @@
+.classification_content{
+    /* background-color: blue; */
+    height: 52rem;
+    max-height: 52rem;
+    overflow: auto;
+    
+}
+
+.classification_content .classification_area{
+    background-color: #fff;
+    height: 52rem;
+    padding: 1rem 0 1rem 0;
+}

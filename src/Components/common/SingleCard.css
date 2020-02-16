@@ -1,17 +1,20 @@
 .Cards{
-   
+    min-height: 51rem;
+    text-align: left;
+   /* height: 51rem;
+   overflow: auto; */
 }
 
 .singlecard{
-    width: 18rem;
-    height: 23rem;
+    width: 20rem;
+    height: 25rem;
     background-color:#fff;
-    margin: 2rem 1.6rem 0 0;
+    margin: 0rem 0rem 2rem 2rem;
     display: inline-block;
 }
 
 .singlecard_pic{
-    height: 17rem;
+    height: 19rem;
     -moz-box-shadow:3px 3px 5px #f4f5f5;
     -webkit-box-shadow:3px 3px 5px #f4f5f5; 
     box-shadow:3px 3px 5px #f4f5f5;
@@ -30,7 +33,7 @@
 }
 
 .singlecard_content .food_name{
-   padding:0.5rem 0.5rem 0.5rem 1rem;
+   padding:0.5rem 0.5rem 0.5rem 1.5rem;
    text-align: left;
 }
 
@@ -46,7 +49,7 @@
 .singlecard_content .food_message .food_price{
     display: inline-block;
     width: 60%;
-    padding:0.5rem 0.5rem 0.5rem 1rem;
+    padding:0.5rem 0.5rem 0.5rem 1.5rem;
     /* background-color: red; */
 }
 
