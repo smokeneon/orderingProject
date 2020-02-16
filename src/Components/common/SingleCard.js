@@ -18,7 +18,7 @@ class SingleCard extends Component{
                     
                     {/* 图片区域 */}
                     <div className="singlecard_pic">
-                        <img alt="" src="https://user-gold-cdn.xitu.io/2020/2/12/170384adf402648b?w=500&h=500&f=png&s=73774" />
+                        <img alt="" src="https://i.loli.net/2020/02/16/mtuUPOpM6bFofQ5.png" />
                     </div>
                     {/* 价格，数量区域 */}
                     <div className="singlecard_content">
@@ -31,13 +31,12 @@ class SingleCard extends Component{
                     </div>
                 </div>
                 {/* 一个卡片菜品　截止 */}
-
                   {/* 一个卡片菜品 */}
                   <div className="singlecard">
                     
                     {/* 图片区域 */}
                     <div className="singlecard_pic">
-                        <img alt="" src="https://user-gold-cdn.xitu.io/2020/2/12/170384adf402648b?w=500&h=500&f=png&s=73774" />
+                        <img alt="" src="https://i.loli.net/2020/02/16/mtuUPOpM6bFofQ5.png" />
                     </div>
                     {/* 价格，数量区域 */}
                     <div className="singlecard_content">
@@ -50,13 +49,12 @@ class SingleCard extends Component{
                     </div>
                 </div>
                 {/* 一个卡片菜品　截止 */}
-
                   {/* 一个卡片菜品 */}
                   <div className="singlecard">
                     
                     {/* 图片区域 */}
                     <div className="singlecard_pic">
-                        <img alt="" src="https://user-gold-cdn.xitu.io/2020/2/12/170384adf402648b?w=500&h=500&f=png&s=73774" />
+                        <img alt="" src="https://i.loli.net/2020/02/16/mtuUPOpM6bFofQ5.png" />
                     </div>
                     {/* 价格，数量区域 */}
                     <div className="singlecard_content">
@@ -69,13 +67,12 @@ class SingleCard extends Component{
                     </div>
                 </div>
                 {/* 一个卡片菜品　截止 */}
-
                   {/* 一个卡片菜品 */}
                   <div className="singlecard">
                     
                     {/* 图片区域 */}
                     <div className="singlecard_pic">
-                        <img alt="" src="https://user-gold-cdn.xitu.io/2020/2/12/170384adf402648b?w=500&h=500&f=png&s=73774" />
+                        <img alt="" src="https://i.loli.net/2020/02/16/mtuUPOpM6bFofQ5.png" />
                     </div>
                     {/* 价格，数量区域 */}
                     <div className="singlecard_content">
@@ -88,14 +85,12 @@ class SingleCard extends Component{
                     </div>
                 </div>
                 {/* 一个卡片菜品　截止 */}
-
-
                   {/* 一个卡片菜品 */}
                   <div className="singlecard">
                     
                     {/* 图片区域 */}
                     <div className="singlecard_pic">
-                        <img alt="" src="https://user-gold-cdn.xitu.io/2020/2/12/170384adf402648b?w=500&h=500&f=png&s=73774" />
+                        <img alt="" src="https://i.loli.net/2020/02/16/mtuUPOpM6bFofQ5.png" />
                     </div>
                     {/* 价格，数量区域 */}
                     <div className="singlecard_content">
@@ -108,14 +103,12 @@ class SingleCard extends Component{
                     </div>
                 </div>
                 {/* 一个卡片菜品　截止 */}
-
-
                   {/* 一个卡片菜品 */}
                   <div className="singlecard">
                     
                     {/* 图片区域 */}
                     <div className="singlecard_pic">
-                        <img alt="" src="https://user-gold-cdn.xitu.io/2020/2/12/170384adf402648b?w=500&h=500&f=png&s=73774" />
+                        <img alt="" src="https://i.loli.net/2020/02/16/mtuUPOpM6bFofQ5.png" />
                     </div>
                     {/* 价格，数量区域 */}
                     <div className="singlecard_content">
@@ -128,14 +121,12 @@ class SingleCard extends Component{
                     </div>
                 </div>
                 {/* 一个卡片菜品　截止 */}
-
-
                   {/* 一个卡片菜品 */}
                   <div className="singlecard">
                     
                     {/* 图片区域 */}
                     <div className="singlecard_pic">
-                        <img alt="" src="https://user-gold-cdn.xitu.io/2020/2/12/170384adf402648b?w=500&h=500&f=png&s=73774" />
+                        <img alt="" src="https://i.loli.net/2020/02/16/mtuUPOpM6bFofQ5.png" />
                     </div>
                     {/* 价格，数量区域 */}
                     <div className="singlecard_content">
@@ -148,106 +139,7 @@ class SingleCard extends Component{
                     </div>
                 </div>
                 {/* 一个卡片菜品　截止 */}
-
-
-                  {/* 一个卡片菜品 */}
-                  <div className="singlecard">
-                    
-                    {/* 图片区域 */}
-                    <div className="singlecard_pic">
-                        <img alt="" src="https://user-gold-cdn.xitu.io/2020/2/12/170384adf402648b?w=500&h=500&f=png&s=73774" />
-                    </div>
-                    {/* 价格，数量区域 */}
-                    <div className="singlecard_content">
-                            <div className="food_name"><span>椒麻鸡丝饭单人套餐</span></div>
-                            <div className="food_message">
-                                <span className="food_price">￥<span>37</span> </span>
-                                <span className="food_order"><Button type="primary">立即订餐</Button></span>
-                            </div>
-                           
-                    </div>
-                </div>
-                {/* 一个卡片菜品　截止 */}
-
-
-                  {/* 一个卡片菜品 */}
-                  <div className="singlecard">
-                    
-                    {/* 图片区域 */}
-                    <div className="singlecard_pic">
-                        <img alt="" src="https://user-gold-cdn.xitu.io/2020/2/12/170384adf402648b?w=500&h=500&f=png&s=73774" />
-                    </div>
-                    {/* 价格，数量区域 */}
-                    <div className="singlecard_content">
-                            <div className="food_name"><span>椒麻鸡丝饭单人套餐</span></div>
-                            <div className="food_message">
-                                <span className="food_price">￥<span>37</span> </span>
-                                <span className="food_order"><Button type="primary">立即订餐</Button></span>
-                            </div>
-                           
-                    </div>
-                </div>
-                {/* 一个卡片菜品　截止 */}
-
-
-                  {/* 一个卡片菜品 */}
-                  <div className="singlecard">
-                    
-                    {/* 图片区域 */}
-                    <div className="singlecard_pic">
-                        <img alt="" src="https://user-gold-cdn.xitu.io/2020/2/12/170384adf402648b?w=500&h=500&f=png&s=73774" />
-                    </div>
-                    {/* 价格，数量区域 */}
-                    <div className="singlecard_content">
-                            <div className="food_name"><span>椒麻鸡丝饭单人套餐</span></div>
-                            <div className="food_message">
-                                <span className="food_price">￥<span>37</span> </span>
-                                <span className="food_order"><Button type="primary">立即订餐</Button></span>
-                            </div>
-                           
-                    </div>
-                </div>
-                {/* 一个卡片菜品　截止 */}
-
-
-                  {/* 一个卡片菜品 */}
-                  <div className="singlecard">
-                    
-                    {/* 图片区域 */}
-                    <div className="singlecard_pic">
-                        <img alt="" src="https://user-gold-cdn.xitu.io/2020/2/12/170384adf402648b?w=500&h=500&f=png&s=73774" />
-                    </div>
-                    {/* 价格，数量区域 */}
-                    <div className="singlecard_content">
-                            <div className="food_name"><span>椒麻鸡丝饭单人套餐</span></div>
-                            <div className="food_message">
-                                <span className="food_price">￥<span>37</span> </span>
-                                <span className="food_order"><Button type="primary">立即订餐</Button></span>
-                            </div>
-                           
-                    </div>
-                </div>
-                {/* 一个卡片菜品　截止 */}
-
-
-                  {/* 一个卡片菜品 */}
-                  <div className="singlecard">
-                    
-                    {/* 图片区域 */}
-                    <div className="singlecard_pic">
-                        <img alt="" src="https://user-gold-cdn.xitu.io/2020/2/12/170384adf402648b?w=500&h=500&f=png&s=73774" />
-                    </div>
-                    {/* 价格，数量区域 */}
-                    <div className="singlecard_content">
-                            <div className="food_name"><span>椒麻鸡丝饭单人套餐</span></div>
-                            <div className="food_message">
-                                <span className="food_price">￥<span>37</span> </span>
-                                <span className="food_order"><Button type="primary">立即订餐</Button></span>
-                            </div>
-                           
-                    </div>
-                </div>
-                {/* 一个卡片菜品　截止 */}
+   
                   
             </div>
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './ShoppingCartMain.css';
-import {Checkbox,InputNumber,Icon} from 'antd';
+import {Checkbox,InputNumber,Icon, Button} from 'antd';
 export default class ShoppingCartMain extends Component {
     onChange=(e)=> {
         console.log(`checked = ${e.target.checked}`);
@@ -33,7 +33,7 @@ export default class ShoppingCartMain extends Component {
                                     </span>
                                     <span className="food">
                                         
-                                        <img alt="" src="https://user-gold-cdn.xitu.io/2020/2/12/170384adf402648b?w=500&h=500&f=png&s=73774"></img>
+                                        <img alt="" src="https://i.loli.net/2020/02/16/mtuUPOpM6bFofQ5.png"></img>
                                         <span className="food_name">照烧鸡排饭（大）套餐</span>
                                     </span>
                                     <span className="mount">
@@ -61,7 +61,7 @@ export default class ShoppingCartMain extends Component {
                                     </span>
                                     <span className="food">
                                         
-                                        <img alt="" src="https://user-gold-cdn.xitu.io/2020/2/12/170384adf402648b?w=500&h=500&f=png&s=73774"></img>
+                                        <img alt="" src="https://i.loli.net/2020/02/16/mtuUPOpM6bFofQ5.png"></img>
                                         <span className="food_name">照烧鸡排饭（大）套餐</span>
                                     </span>
                                     <span className="mount">
@@ -89,7 +89,7 @@ export default class ShoppingCartMain extends Component {
                                     </span>
                                     <span className="food">
                                         
-                                        <img alt="" src="https://user-gold-cdn.xitu.io/2020/2/12/170384adf402648b?w=500&h=500&f=png&s=73774"></img>
+                                        <img alt="" src="https://i.loli.net/2020/02/16/mtuUPOpM6bFofQ5.png"></img>
                                         <span className="food_name">照烧鸡排饭（大）套餐</span>
                                     </span>
                                     <span className="mount">
@@ -112,7 +112,17 @@ export default class ShoppingCartMain extends Component {
                           
                         </div>
                         <div className="shoppingcart_footer">
-
+                            <div className="footer_area">
+                                <span className="footer_btn">
+                                    <Button size="large" type="primary">去结算</Button>
+                                </span>
+                                <span className="footer_money">
+                                    总计金额:
+                                    <span className="money_value">
+                                       ￥345
+                                    </span>
+                                </span>
+                            </div>
                         </div>
                     </div>
                     

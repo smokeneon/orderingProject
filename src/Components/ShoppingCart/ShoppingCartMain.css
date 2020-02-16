@@ -101,3 +101,41 @@
     font-size: 1rem;
     color: #07111b;
 }
+
+/* 购物车的footer */
+
+.shoppingcart_footer{
+    padding: 0rem 3.2rem 1rem 3.2rem;
+    height: 8rem;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    /* border-bottom: 1px solid #EAEAEF; */
+}
+
+.shoppingcart_footer .footer_area{
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    padding: 0.5rem 5rem 0.5rem 0;
+}
+
+.shoppingcart_footer .footer_area .footer_money{
+    padding: 1rem;
+    display: inline-block;
+    align-items:flex-end;
+    width: 10rem;
+    height: 5.5rem;
+    text-align: left;
+    color: #07111b;
+}
+
+.shoppingcart_footer .footer_area .footer_money .money_value{
+    display: inline-block;
+    width: 100%;
+    font-size: 1.5rem;
+    color:#D9272E;
+    font-weight: bolder;
+}
