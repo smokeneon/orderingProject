@@ -1,0 +1,18 @@
+.Cards{
+    min-height: 51rem;
+    text-align: left;
+   /* height: 51rem;
+   overflow: auto; */
+}
+
+
+/* 分页样式 */
+
+.pagination{
+    width: 100%;
+    padding: 2rem 0 2rem 0;
+}
+
+.pagination .layout{
+    margin: 0 auto;
+}

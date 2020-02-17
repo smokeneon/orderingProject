@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import RotationChart from '../Components/Home/RotationChart ';
 import Classification from '../Components/Home/Classification';
-import SingleCard from '../Components/Home/SingleCard'
+import SingleCardMain from '../Components/Home/SingleCardMain'
 import Footer from '../Components/common/Footer'
 import {Row,Col} from 'antd';
 class Home extends Component{
@@ -28,7 +28,7 @@ class Home extends Component{
                     </Col>
                     <Col xs={18} sm={18} md={18} lg={18} xl={20}>
                         {/* 卡片组 */}
-                        <SingleCard />
+                        <SingleCardMain />
                     </Col>
                   
                     {/* 页脚 */}

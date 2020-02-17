@@ -5,7 +5,7 @@ import SingleFoodlist from './SingleFoodlist';
 
 export default class ShoppingCartMain extends Component {
     state = {
-        goodsList:[
+        shoppingGoodsList:[
             {
                 foodId:'001',
                 foodName:'椒麻鸡丝饭单人套餐1',
@@ -62,7 +62,7 @@ export default class ShoppingCartMain extends Component {
                         {/* 菜品内容区域 */}
                         <div className="shoppingcart_content">
                         {
-                            this.state.goodsList.map((item, index) => {
+                            this.state.shoppingGoodsList.map((item, index) => {
                                 return (
                                     // console.log(item,index)
                                     <SingleFoodlist key={index} item={item} />

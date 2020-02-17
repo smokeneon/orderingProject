@@ -4,7 +4,7 @@ import { Menu, Affix } from 'antd';
 
 export default class Classification extends Component {
     state = {
-        top: 10,
+        top: 50,
         bottom: 10,
       };
     
