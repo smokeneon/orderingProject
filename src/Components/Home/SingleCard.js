@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import './SingleCard.css';
 import { Button } from 'antd';
+import { Link } from 'react-router-dom';
+
 export default class SingleCard extends Component {
     render() {
         return (
@@ -17,9 +19,9 @@ export default class SingleCard extends Component {
                         <div className="food_name"><span>{this.props.item.foodName}</span></div>
                         <div className="food_message">
                             <span className="food_price">￥<span>{this.props.item.unitPrice}</span> </span>
-                          
+
                             <span className="food_order">
-                                <Button>详情</Button>
+                                <Link to="/foodDetail"><Button>详情</Button></Link>
                                 <Button type="primary">立即订餐</Button>
                             </span>
                         </div>

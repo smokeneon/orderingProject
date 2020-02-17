@@ -5,6 +5,7 @@ import Home from './Page/Home';
 import ShoppingCart from './Page/ShoppingCart';
 import ForgetPassword from './Page/ForgetPassword';
 import SingleFoodDetails from './Page/SingleFoodDetails';
+import UserInformation from './Page/UserInformation';
 import { HashRouter, Route } from 'react-router-dom';
 // import { HashRouter, Route, Redirect } from 'react-router-dom';
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path='/shoppingCart' exact component={ShoppingCart}></Route>
         <Route path='/forget' exact component={ForgetPassword}></Route>
         <Route path='/foodDetail' exact component={SingleFoodDetails}></Route>
+        <Route path='/me' exact component={UserInformation}></Route>
       </HashRouter>
     </div>
   );

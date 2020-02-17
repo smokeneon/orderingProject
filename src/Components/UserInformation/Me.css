@@ -1,0 +1,13 @@
+@media all and (min-width: 768px) {
+    .me_main{
+        min-height: auto;
+    }
+
+    .me_main .me_area{
+        width: 100%;
+        min-height: 36rem;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 8px 16px 0 rgba(7,17,27,.1);
+    }
+}
