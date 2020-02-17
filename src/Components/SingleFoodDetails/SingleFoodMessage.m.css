@@ -1,3 +1,5 @@
 @media screen and (min-width: 320px)and (max-width: 750px) {
-    
+    *{
+        background-color: red;
+    }
 }
