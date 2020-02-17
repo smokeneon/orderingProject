@@ -3,6 +3,7 @@ import { Form, Icon, Input, Button, Tooltip } from 'antd';
 import './Login.css';
 import {connect}　from 'react-redux';
 import * as actionCreators from '../../store/actionCreator';
+import { Link } from 'react-router-dom';
 
 class NormalLoginForm extends React.Component {
     handleSubmit = e => {
@@ -50,7 +51,7 @@ class NormalLoginForm extends React.Component {
                     )}
                 </Form.Item>
                 <Form.Item>
-                <div className="forget_password">忘记密码</div>
+                <Link to="/forget"><div className="forget_password">忘记密码</div></Link>
                     <Button type="primary" htmlType="submit" className="login-form-button">
                        登　录
                     </Button>

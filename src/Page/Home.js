@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
-import RotationChart from '../Components/common/RotationChart ';
-import Classification from '../Components/common/Classification';
-import SingleCard from '../Components/common/SingleCard'
+import RotationChart from '../Components/Home/RotationChart ';
+import Classification from '../Components/Home/Classification';
+import SingleCard from '../Components/Home/SingleCard'
 import Footer from '../Components/common/Footer'
 import {Row,Col} from 'antd';
 class Home extends Component{

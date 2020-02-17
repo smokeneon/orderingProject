@@ -3,6 +3,7 @@ import './App.css';
 import Header from './Components/common/Header';
 import Home from './Page/Home';
 import ShoppingCart from './Page/ShoppingCart';
+import ForgetPassword from './Page/ForgetPassword';
 import { HashRouter, Route } from 'react-router-dom';
 // import { HashRouter, Route, Redirect } from 'react-router-dom';
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <Header />
         <Route path='/' exact component={Home} ></Route>
         <Route path='/shoppingCart' exact component={ShoppingCart}></Route>
+        <Route path='/forget' exact component={ForgetPassword}></Route>
       </HashRouter>
     </div>
   );
