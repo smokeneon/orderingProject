@@ -37,8 +37,8 @@ export const getRegisterCode = (email) => {
         let data = {
             email:email
         }
-        console.log(JSON.stringify(data))
-        console.log(Qs.stringify(data))
+        // console.log(JSON.stringify(data))
+        // console.log(Qs.stringify(data))
         axios({
             method:'POST',
             headers: {
@@ -59,14 +59,15 @@ export const getRegisterCode = (email) => {
         })
     }
 }
+// 注册
 
 export const toRegister = (RegisterObject)=>{
-    console.log('actioncreateor');
-    
-    console.log(RegisterObject);
     
     return (dispatch) => {
         let data = RegisterObject;
+        console.log('hahah')
+        debugger
+        
         axios({
             method:'post',
             headers: {
@@ -75,7 +76,34 @@ export const toRegister = (RegisterObject)=>{
             url:'/api/register',
             data:Qs.stringify(data)
         }).then((res)=>{
+            // 跳转到登录页
             message.success(res.data.message);
+            dispatch(toLoginMain());
+        }).catch((error)=>{
+            message.error('注册失败：',error);
+            
+        })
+    }
+}
+
+// 登录
+
+export const toLogin = (LoginObject)=>{
+    console.log('actioncreateorLogin');
+    console.log(LoginObject);
+    
+    return (dispatch) => {
+        let data = LoginObject;
+        axios({
+            method:'post',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            url:'/api/login',
+            data:Qs.stringify(data)
+        }).then((res)=>{
+            message.success(res.data.message);
+            dispatch(cancelModal());
         }).catch((error)=>{
             message.error('注册失败：',error);
             

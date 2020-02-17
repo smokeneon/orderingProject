@@ -17,7 +17,11 @@ export default class SingleCard extends Component {
                         <div className="food_name"><span>{this.props.item.foodName}</span></div>
                         <div className="food_message">
                             <span className="food_price">￥<span>{this.props.item.unitPrice}</span> </span>
-                            <span className="food_order"><Button type="primary">立即订餐</Button></span>
+                          
+                            <span className="food_order">
+                                <Button>详情</Button>
+                                <Button type="primary">立即订餐</Button>
+                            </span>
                         </div>
 
                     </div>

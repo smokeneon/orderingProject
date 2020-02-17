@@ -42,7 +42,7 @@
 
 .singlecard_content .food_message .food_price{
     display: inline-block;
-    width: 60%;
+    width: 40%;
     padding:0.5rem 0.5rem 0.5rem 1.5rem;
     /* background-color: red; */
 }
@@ -55,8 +55,13 @@
 
 .singlecard_content .food_message .food_order{
     display: inline-block;
-    width: 40%;
-    padding:0.5rem 0.5rem 0.5rem 0.8rem;
+    width: 60%;
+    padding:0.5rem;
     /* background-color: blue; */
     float: right;
+}
+
+.singlecard_content .food_message .food_order Button{
+    margin-right: 0.6rem;
+    /* background-color: red; */
 }

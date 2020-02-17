@@ -10,7 +10,8 @@ class NormalLoginForm extends React.Component {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                console.log('Received values of form: ', values);
+                // console.log('Received values of form: ', values);
+                this.props.toLogin(values);
             }
         });
     };
@@ -51,7 +52,7 @@ class NormalLoginForm extends React.Component {
                     )}
                 </Form.Item>
                 <Form.Item>
-                <Link to="/forget"><div className="forget_password">忘记密码</div></Link>
+                <Link to="/forget"><div　onClick={()=>this.props.cancelModal()} className="forget_password">忘记密码</div></Link>
                     <Button type="primary" htmlType="submit" className="login-form-button">
                        登　录
                     </Button>
@@ -70,6 +71,13 @@ const mapDispatchToProps = (dispatch) => {
     return {
         toRegisterMain: () => {
             dispatch(actionCreators.toRegisterMain())
+        },
+        toLogin: (LoginObject)=>{
+            dispatch(actionCreators.toLogin(LoginObject))
+        },
+        //忘记密码点击执行
+        cancelModal:()=>{
+            dispatch(actionCreators.cancelModal());
         }
     }
 }

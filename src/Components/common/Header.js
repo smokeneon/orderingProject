@@ -11,7 +11,7 @@ const { SubMenu } = Menu;
 class Header extends Component {
 
     handleClick = e => {
-        console.log('click ', e);
+        // console.log('click ', e);
         this.setState({
           current: e.key,
         });
@@ -44,7 +44,7 @@ class Header extends Component {
                                  
                                    
                                     <Menu.Item key="alipay">
-                                    <a onClick={this.props.showModal}>
+                                    <a onClick={()=>this.props.showModal()}>
                                     <span className="inner_userBtn">
                                         <Icon type="login" />　登录 / 注册
                                         </span>

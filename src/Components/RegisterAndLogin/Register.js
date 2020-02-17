@@ -15,7 +15,7 @@ class NormalLoginForm extends React.Component {
         this.props.form.validateFields((err, values) => {
             if (!err) {
                
-                console.log('Received values of form: ', values);
+                // console.log('Received values of form: ', values);
                 this.props.toRegister(values);
             }
         });
@@ -168,10 +168,7 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(actionCreators.changeGetCodeBtnToFalse())
         },
         toRegister:(RegisterObject)=>{
-            console.log('register ');
-            console.log(RegisterObject);
-            
-            
+            // console.log(RegisterObject);
             dispatch(actionCreators.toRegister(RegisterObject))
         }
     }
