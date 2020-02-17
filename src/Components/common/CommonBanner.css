@@ -1,11 +1,11 @@
-.cartBannerMain{
+.commonBannerMain{
     height: 12rem;
     /* background-color: royalblue; */
     padding: 2rem;
     display: flex;
     align-items: center;
 }
-.cartBannerMain .cartBannerMainTitle{
+.commonBannerMain .commonBannerMainTitle{
     font-size: 2rem;
     color: #07111b;
     text-align: left;

@@ -23,10 +23,10 @@ class Home extends Component{
                     {/* 轮播图 */}
                     <RotationChart />
 
-                    <Col xs={24} sm={24} md={4} lg={4} xl={4}>
+                    <Col xs={6} sm={6} md={6} lg={6} xl={4}>
                        <Classification />
                     </Col>
-                    <Col xs={24} sm={24} md={20} lg={20} xl={20}>
+                    <Col xs={18} sm={18} md={18} lg={18} xl={20}>
                         {/* 卡片组 */}
                         <SingleCard />
                     </Col>
