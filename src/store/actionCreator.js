@@ -85,7 +85,6 @@ export const toRegister = (RegisterObject)=>{
 }
 
 // 登录
-
 export const toLogin = (LoginObject)=>{
     console.log('actioncreateorLogin');
     console.log(LoginObject);
@@ -101,16 +100,22 @@ export const toLogin = (LoginObject)=>{
         }).then((res)=>{
             if(res.data.success){
                 message.success('登录成功');
+                dispatch(loginSuccessSaveState(res.data.message));
+                sessionStorage.setItem('isLogin',res.data.success);
+                sessionStorage.setItem('token',res.data.message)
+                dispatch(cancelModal());
             }else{
                 message.warning(res.data.message);
             }
-            // message: "eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE1ODIwMjgyOTAsInN1YiI6Imxlb25AaG9vYy50b3AiLCJqdGkiOiIyIiwiaWF0IjoxNTgyMDI3Njg1LCJpc3MiOiJQYXVsIiwiYXV0aG9yaXRpZXMiOiJbe1wiYXV0aG9yaXR5XCI6XCJST0xFX1VTRVJcIn1dIn0.n5drusx59x3Gt-uVTW9pYegQTXnScVqN8g3as-qeJKgSMMrst11t0U-LsW0ITE4cLURf5wxXHyA0MYxC_3Br0A"
-            // status: 200
-            // success: true
-            dispatch(cancelModal());
+            
         }).catch((error)=>{
             message.error('登录失败：',error);
             
         })
     }
 }
+// 登录成功保存状态到redux
+export const loginSuccessSaveState = (message)=>({
+    type: actionTypes.LOGIN_SUCCESS_SAVE_STATE,
+    data: message
+})

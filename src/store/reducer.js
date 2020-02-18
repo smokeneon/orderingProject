@@ -4,7 +4,10 @@ import * as actionTypes from './actionTypes'
 const defaultState = fromJS({
     modalVisible:false,
     showRegisterOrLoginMain:false,
-    allowSendCode:true
+    allowSendCode:true,
+    isLogin:false,
+    token:'',
+
 });
 
 export default (state=defaultState,action) => {
@@ -22,7 +25,12 @@ export default (state=defaultState,action) => {
         case actionTypes.CHANGE_GETCODE_BTN_TO_TRUE:
             return state.set('allowSendCode',true);
         case actionTypes.CHANGE_GETCODE_BTN_TO_FALSE:
-            return state.set('allowSendCode',false)
+            return state.set('allowSendCode',false);
+        case actionTypes.LOGIN_SUCCESS_SAVE_STATE:
+            return state.merge({
+                'isLogin':true,
+                'token':action.data,
+            })
         default:
             return state;
     }
