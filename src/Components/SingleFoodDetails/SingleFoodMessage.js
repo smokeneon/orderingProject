@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import './SingleFoodMessage.css';
 import './SingleFoodMessage.m.css';
-import { Rate, Button } from 'antd';
+import { Rate, Button,Pagination,Input } from 'antd';
+
+const { TextArea } = Input;
+
 export default class SingleFoodMessage extends Component {
     render() {
         return (
@@ -25,7 +28,20 @@ export default class SingleFoodMessage extends Component {
                         </span>
 
                     </div>
-                    {/* 用户评价区域 */}
+                    {/* 用户评论区域 */}
+                    <div className="create_appraise">
+                        <div className="create_appraise_title">点评</div>
+                        <div className="create_appraise_area">
+                            <div className="text_input">
+                                <TextArea rows={4} />
+                            </div>
+                            <div className="star_and_btn">
+                                <span className="star"><Rate defaultValue={3} /></span>
+                                <span className="commit_btn"><Button>发布评论</Button></span>
+                            </div>
+                        </div>
+                    </div>
+                    {/* 他人评价区域 */}
                     <div className="food_message_appraise">
                         <div className="appraise_area_title">用户评价</div>
                         {/* 单个评论开始 */}
@@ -39,8 +55,8 @@ export default class SingleFoodMessage extends Component {
 
                         </div>
                         {/* 单个评论结束 */}
-                         {/* 单个评论开始 */}
-                         <div className="appraise_area">
+                        {/* 单个评论开始 */}
+                        <div className="appraise_area">
                             <div className="appraise_nickname">Leondon</div>
                             <div className="appraise_star_and_time">
                                 <span className="appraise_star"><Rate defaultValue={3} /></span>
@@ -50,10 +66,15 @@ export default class SingleFoodMessage extends Component {
 
                         </div>
                         {/* 单个评论结束 */}
-            
+
                     </div>
                     {/* 用户评价结束 */}
-
+                    {/* 分页 */}
+                    <div className="pagination">
+                        <div className="layout">
+                            <Pagination defaultCurrent={1} total={50} />
+                        </div>
+                    </div>
 
                 </div>
             </>

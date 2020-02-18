@@ -24,9 +24,9 @@ class NormalLoginForm extends React.Component {
     allowBtnSend = e => {
         // console.log(this.props.form.getFieldError('email'))
         // 通过查询antd官方API发现this.props.form有getFieldError属性，可以获取到错误，从而判断，邮箱栏未输入正确的情况下不可以执行获取验证码
-        let errorReturnMessage = this.props.form.getFieldError('email');
+        let errorReturnMessage = this.props.form.getFieldError('username');
         // 通过getFieldValue获取初始值
-        let isEmptyMail = this.props.form.getFieldValue('email');
+        let isEmptyMail = this.props.form.getFieldValue('username');
         if(isEmptyMail === undefined){
             message.warning('请填写正确的注册邮箱');
         }else{
@@ -58,7 +58,7 @@ class NormalLoginForm extends React.Component {
                 <Form onSubmit={this.handleSubmit} className="login-form">
 
                     <Form.Item>
-                        {getFieldDecorator('email', {
+                        {getFieldDecorator('username', {
                             rules: [{ pattern: '^\\s*\\w+(?:\\.{0,1}[\\w-]+)*@[a-zA-Z0-9]+(?:[-.][a-zA-Z0-9]+)*\\.[a-zA-Z]+\\s*$', message: '请输入正确的邮箱!' }
                                     ,{ required: true, message: '注册邮箱不能为空' }],
                         })(
@@ -157,8 +157,8 @@ const mapDispatchToProps = (dispatch) => {
         },
         getRegisterCode:(value)=>{
             // console.log(value.props.value)
-            let email = value.props.value;
-            dispatch(actionCreators.getRegisterCode(email))
+            let username = value.props.value;
+            dispatch(actionCreators.getRegisterCode(username))
         },
         // 改变获取验证码按钮的状态
         changeGetCodeBtnToTrue:()=>{

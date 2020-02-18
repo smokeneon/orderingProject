@@ -29,22 +29,21 @@ export const changeGetCodeBtnToFalse =()=>({
     type:actionTypes.CHANGE_GETCODE_BTN_TO_FALSE
 })
 // 获取验证码接口
-export const getRegisterCode = (email) => {
+export const getRegisterCode = (username) => {
     // console.log('xxxx'+email);
     
     // console.log(Qs.stringify(email))
     return (dispatch) => {
         let data = {
-            email:email
+            username:username
         }
-        // console.log(JSON.stringify(data))
         // console.log(Qs.stringify(data))
         axios({
             method:'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
-            url:'/api/vccode',
+            url:'/api/authentication/vccode',
             data:Qs.stringify(data)
         }).then((res)=>{
             message.success(res.data.message);
@@ -65,15 +64,14 @@ export const toRegister = (RegisterObject)=>{
     
     return (dispatch) => {
         let data = RegisterObject;
-        console.log('hahah')
-        debugger
+        console.log(data)
         
         axios({
             method:'post',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
-            url:'/api/register',
+            url:'/api/authentication/register',
             data:Qs.stringify(data)
         }).then((res)=>{
             // 跳转到登录页
@@ -91,7 +89,6 @@ export const toRegister = (RegisterObject)=>{
 export const toLogin = (LoginObject)=>{
     console.log('actioncreateorLogin');
     console.log(LoginObject);
-    
     return (dispatch) => {
         let data = LoginObject;
         axios({
@@ -99,13 +96,20 @@ export const toLogin = (LoginObject)=>{
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
-            url:'/api/login',
+            url:'/api/authentication/login',
             data:Qs.stringify(data)
         }).then((res)=>{
-            message.success(res.data.message);
+            if(res.data.success){
+                message.success('登录成功');
+            }else{
+                message.warning(res.data.message);
+            }
+            // message: "eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE1ODIwMjgyOTAsInN1YiI6Imxlb25AaG9vYy50b3AiLCJqdGkiOiIyIiwiaWF0IjoxNTgyMDI3Njg1LCJpc3MiOiJQYXVsIiwiYXV0aG9yaXRpZXMiOiJbe1wiYXV0aG9yaXR5XCI6XCJST0xFX1VTRVJcIn1dIn0.n5drusx59x3Gt-uVTW9pYegQTXnScVqN8g3as-qeJKgSMMrst11t0U-LsW0ITE4cLURf5wxXHyA0MYxC_3Br0A"
+            // status: 200
+            // success: true
             dispatch(cancelModal());
         }).catch((error)=>{
-            message.error('注册失败：',error);
+            message.error('登录失败：',error);
             
         })
     }
