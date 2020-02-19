@@ -5,6 +5,7 @@ const defaultState = fromJS({
     modalVisible:false,
     showRegisterOrLoginMain:false,
     allowSendCode:true,
+    homeCategoriesList:[]
 
 });
 
@@ -29,6 +30,10 @@ export default (state=defaultState,action) => {
         //         'isLogin':true,
         //         'token':action.data,
         //     })
+
+        // 获取主页分类列表
+        case actionTypes.GET_ALL_CATEGORIES:
+            return state.set('homeCategoriesList',action.data)
         default:
             return state;
     }

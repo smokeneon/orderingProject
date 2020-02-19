@@ -7,7 +7,6 @@ import * as actionCreators from '../../store/actionCreator';
 class NormalLoginForm extends React.Component {
     state = {
         userEmailInput:'',
-
     }
     // 表单提交前校验
     handleSubmit = e => {
@@ -72,7 +71,7 @@ class NormalLoginForm extends React.Component {
                                         <Icon type="info-circle" style={{ color: 'rgba(0,0,0,.45)' }} />
                                     </Tooltip>
                                 }
-                                ref={(value)=>{this.state.userEmailInput=value}}
+                                ref={(value)=>{this.setState({userEmailInput:value})}}
                             />
                         )}
                     </Form.Item>

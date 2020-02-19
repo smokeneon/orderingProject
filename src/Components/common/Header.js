@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Icon ,Menu} from 'antd';
+import { Row, Col, Icon ,Menu, message} from 'antd';
 import './Header.css';
 import logo from '../../static/logo.png';
 import {connect} from 'react-redux';
@@ -16,6 +16,12 @@ class Header extends Component {
           current: e.key,
         });
       };
+      logout = ()=>{
+        sessionStorage.removeItem("isLogin");
+        sessionStorage.removeItem("token");
+        message.success('登出成功')
+        
+      }
 
     render() {
         return (
@@ -42,7 +48,8 @@ class Header extends Component {
                                 <Col offset={8} xs={12} sm={12} md={12} lg={12} xl={12} justify="end">
                                 <Menu onClick={this.handleClick}  mode="horizontal"　style={{"borderBottom": "none","display":"flex","flexDirection": "row-reverse"}}>
                                  
-                                    {sessionStorage.getItem('isLogin')?
+                                    {
+                                    sessionStorage.getItem('isLogin')===false ||sessionStorage.getItem('isLogin')=== null  ?
 
                                     <Menu.Item key="loginOrRegister">
                                     <a onClick={()=>this.props.showModal()}>
@@ -62,7 +69,7 @@ class Header extends Component {
                                     >
                                     {/* <Menu.ItemGroup> */}
                                         <Menu.Item key="setting:3"><Link to="/me">我的主页</Link></Menu.Item>
-                                        <Menu.Item key="setting:4">退出登录</Menu.Item>
+                                        <Menu.Item key="setting:4"><a onClick={()=>this.logout()}>退出登录</a></Menu.Item>
                                     {/* </Menu.ItemGroup> */}
                                     </SubMenu>
                                     }

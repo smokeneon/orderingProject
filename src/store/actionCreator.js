@@ -46,6 +46,7 @@ export const getRegisterCode = (username) => {
             url:'/api/authentication/vccode',
             data:Qs.stringify(data)
         }).then((res)=>{
+            console.log(res.data)
             message.success(res.data.message);
             // history.push('/#/');
             // setTimeout( ()=>  history.go(),1600);
@@ -59,12 +60,11 @@ export const getRegisterCode = (username) => {
     }
 }
 // 注册
-
 export const toRegister = (RegisterObject)=>{
     
     return (dispatch) => {
         let data = RegisterObject;
-        console.log(data)
+        // console.log(data)
         
         axios({
             method:'post',
@@ -74,6 +74,7 @@ export const toRegister = (RegisterObject)=>{
             url:'/api/authentication/register',
             data:Qs.stringify(data)
         }).then((res)=>{
+            console.log(res.data)
             // 跳转到登录页
             message.success(res.data.message);
             dispatch(toLoginMain());
@@ -84,10 +85,38 @@ export const toRegister = (RegisterObject)=>{
     }
 }
 
+
+// Paul-eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJQYXVsIiwic3ViIjoibGVvbkBob29jLnRvcCIsImp0aSI6IjIiLCJleHAiOjE1ODI5ODQxNjd9.LYi3-ZFmvmpGFWU5TXJjOUP-K9M4qRaxUGg2bXwaMOQRhoKWVz82a1inA-3PykpgSrjOiaOHvM2HPeBye-2uaw
+// 登录
+// export const toLogin = (LoginObject)=>{
+   
+//     return (dispatch) => {
+     
+
+//         axios({
+//             method:'post',
+//             headers: {
+//                 'Content-Type': 'application/x-www-form-urlencoded',
+//                 'Authority':'Paul-eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJQYXVsIiwic3ViIjoibGVvbkBob29jLnRvcCIsImp0aSI6IjIiLCJleHAiOjE1ODI5ODQxNjd9.LYi3-ZFmvmpGFWU5TXJjOUP-K9M4qRaxUGg2bXwaMOQRhoKWVz82a1inA-3PykpgSrjOiaOHvM2HPeBye-2uaw'
+
+//             },
+//             url:'/api/m/mealKind/酒水饮品',
+          
+//         }).then((res)=>{
+//             console.log(res.data);
+            
+    
+            
+//         }).catch((error)=>{
+//             message.error('登录失败：',error);
+//         })
+//     }
+// }
+
 // 登录
 export const toLogin = (LoginObject)=>{
-    console.log('actioncreateorLogin');
-    console.log(LoginObject);
+    // console.log('actioncreateorLogin');
+    // console.log(LoginObject);
     return (dispatch) => {
         let data = LoginObject;
         axios({
@@ -99,6 +128,7 @@ export const toLogin = (LoginObject)=>{
             data:Qs.stringify(data)
         }).then((res)=>{
             if(res.data.success){
+                console.log(res.data)
                 message.success('登录成功');
                 // dispatch(loginSuccessSaveState(res.data.message));
                 // 登录成功保存状态和token到sessionStroge
@@ -111,6 +141,36 @@ export const toLogin = (LoginObject)=>{
             
         }).catch((error)=>{
             message.error('登录失败：',error);
+        })
+    }
+}
+
+
+export const getAllCategoriesList = (categoriesData)=>({
+    type:actionTypes.GET_ALL_CATEGORIES,
+    data:categoriesData
+})
+
+//获得主页菜品分类列表
+
+export const getAllCategories = ()=> {
+    return (dispatch) => {
+        axios({
+            method:'get',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            url:'/api/m/mealKind',
+        }).then((res)=>{
+            if(res.data.success){
+                console.log(res.data)
+                dispatch(getAllCategoriesList(res.data.data));
+            }else{
+                message.warning(res.data.message);
+            }
+            
+        }).catch((error)=>{
+            message.error('获取失败：',error);
         })
     }
 }

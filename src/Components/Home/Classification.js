@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import './Classification.css';
 import { Menu, Affix } from 'antd';
+import {connect} from 'react-redux';
+import * as actionCreators from '../../store/actionCreator';
 
-export default class Classification extends Component {
+class Classification extends Component {
     state = {
         top: 50,
         bottom: 10,
@@ -12,6 +14,8 @@ export default class Classification extends Component {
         console.log('click ', e);
       };
     render() {
+
+        const data = this.props.homeCategoriesList;
         return (
             <>
               <Affix offsetTop={this.state.top}>
@@ -20,22 +24,17 @@ export default class Classification extends Component {
                   
                     <Menu
                             onClick={this.handleClick}
-                          
-                            defaultSelectedKeys={['1']}
+                            defaultSelectedKeys={['0']}
                             defaultOpenKeys={['sub1']}
                             mode="inline"
                         >
                            
                                 <Menu.ItemGroup key="g1" title="">
-                                    <Menu.Item key="1">健康家餐</Menu.Item>
-                                    <Menu.Item key="2">坚守岗胃</Menu.Item>
-                                    <Menu.Item key="3">专享双拼</Menu.Item>
-                                    <Menu.Item key="4">牛肉套餐</Menu.Item>
-                                    <Menu.Item key="5">猪肉套餐</Menu.Item>
-                                    <Menu.Item key="6">鸡肉套餐</Menu.Item>
-                                    <Menu.Item key="7">单点主食</Menu.Item>
-                                    <Menu.Item key="8">甜品小食</Menu.Item>
-                                    <Menu.Item key="9">酒水饮品</Menu.Item>
+                                    {
+                                        data.map((item,index)=>{
+                                        return <Menu.Item key={index}>{item.name}</Menu.Item>
+                                        })
+                                    }
                                     
                                 </Menu.ItemGroup>
                              
@@ -46,4 +45,23 @@ export default class Classification extends Component {
             </>
         )
     }
+
+    componentDidMount(){
+        this.props.getAllCategories();
+    }
 }
+
+const mapStateToProps = (state, ownProps) => {
+    return {
+        homeCategoriesList: state.get('homeCategoriesList')
+    }
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        getAllCategories: () => {
+            dispatch(actionCreators.getAllCategories())
+        }
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps) (Classification);
