@@ -100,7 +100,8 @@ export const toLogin = (LoginObject)=>{
         }).then((res)=>{
             if(res.data.success){
                 message.success('登录成功');
-                dispatch(loginSuccessSaveState(res.data.message));
+                // dispatch(loginSuccessSaveState(res.data.message));
+                // 登录成功保存状态和token到sessionStroge
                 sessionStorage.setItem('isLogin',res.data.success);
                 sessionStorage.setItem('token',res.data.message)
                 dispatch(cancelModal());
@@ -110,12 +111,6 @@ export const toLogin = (LoginObject)=>{
             
         }).catch((error)=>{
             message.error('登录失败：',error);
-            
         })
     }
 }
-// 登录成功保存状态到redux
-export const loginSuccessSaveState = (message)=>({
-    type: actionTypes.LOGIN_SUCCESS_SAVE_STATE,
-    data: message
-})

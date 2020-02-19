@@ -42,33 +42,49 @@ class Header extends Component {
                                 <Col offset={8} xs={12} sm={12} md={12} lg={12} xl={12} justify="end">
                                 <Menu onClick={this.handleClick}  mode="horizontal"　style={{"borderBottom": "none","display":"flex","flexDirection": "row-reverse"}}>
                                  
-                                   
-                                    <Menu.Item key="alipay">
+                                    {sessionStorage.getItem('isLogin')?
+
+                                    <Menu.Item key="loginOrRegister">
                                     <a onClick={()=>this.props.showModal()}>
                                     <span className="inner_userBtn">
                                         <Icon type="login" />　登录 / 注册
                                         </span>
                                     </a>
                                     </Menu.Item>
+                                    :
+
+                                    <SubMenu
+                                    title={
+                                        <div>
+                                            <Icon type="user" /> 我　的
+                                        </div>
+                                    }
+                                    >
+                                    {/* <Menu.ItemGroup> */}
+                                        <Menu.Item key="setting:3"><Link to="/me">我的主页</Link></Menu.Item>
+                                        <Menu.Item key="setting:4">退出登录</Menu.Item>
+                                    {/* </Menu.ItemGroup> */}
+                                    </SubMenu>
+                                    }
                                     
                                     <SubMenu
                                     title={
+                                        <Link to="/shoppingcart">
                                         <span className="inner_userBtn">
-                                        <Icon type="shopping-cart" /> 购物车
+                                            <Icon type="shopping-cart" /> 购物车
                                         </span>
+                                        </Link>
                                     }
                                     >
-                                    <Menu.ItemGroup>
-                                        
-                                        <Menu.Item key="setting:1"><Link to="/shoppingcart">我的购物车</Link></Menu.Item>
-                                        <Menu.Item key="setting:2">我购买的商品</Menu.Item>
-                                    </Menu.ItemGroup>
+                                    {/* <Menu.ItemGroup> */}
+                                        {/* <Menu.Item key="setting:1"><Link to="/shoppingcart">我的购物车</Link></Menu.Item> */}
+                                        {/* <Menu.Item key="setting:2">我购买的商品</Menu.Item> */}
+                                    {/* </Menu.ItemGroup> */}
                                    
                                     </SubMenu>
 
                                   
                                 </Menu>
-                                {/*  */}
                                 {/* 通过this.props.showModal进行显示Modal */}
                                 {this.props.modalVisible? <LoginOrRegisterModal /> : ''}
                                    

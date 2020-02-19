@@ -1,13 +1,69 @@
 @media all and (min-width: 768px) {
     .me_main{
-        min-height: auto;
+        min-height: 36rem;
     }
-
+    /* 我的信息样式开始 */
     .me_main .me_area{
         width: 100%;
-        min-height: 36rem;
+        height: 16rem;
         background-color: #fff;
         border-radius: 10px;
         box-shadow: 0 8px 16px 0 rgba(7,17,27,.1);
+        padding: 1rem 3rem;
     }
+    .me_main .me_area .me_content{
+        height: 14rem;
+        display: flex;
+    }
+    .me_main .me_area .me_content .head_picture{
+        display: inline-block;
+        width: 10rem;
+        margin: 2rem;
+        height: 10rem;
+       
+    }
+    .me_main .me_area .me_content .head_picture  img{
+        width: 10rem;
+        border-radius: 5rem;
+        box-shadow: 0 8px 16px 0 rgba(7,17,27,.1);
+    }
+    .me_main .me_area .me_content .me_message{
+        display: inline-block;
+        flex: 1;
+        height: 14rem;
+    }
+    .me_main .me_area .me_content .me_message{
+        text-align: left;
+        padding: 1rem 3rem;
+        font-size: 1rem;
+    }
+    .me_message .me_nickname{
+        font-size: 1.8rem;
+        color: #07111b;
+        font-weight: bolder;
+        padding: 0.5rem 0;
+    }
+    .me_message .me_username{
+        padding: 0.5rem 0 ;
+    }
+
+    .me_message .me_sex{
+        padding: 0.5rem 0 ;
+    }
+    .me_message .me_register_time_btn{
+        padding: 0.5rem 0 ;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .me_message .me_register_time_btn　.me_register_time{
+        display: inline-block;
+        width: 20%;
+    }
+    .me_message .me_register_time_btn　.me_register_btn{
+        display: inline-block;
+        width: 20%;
+
+    }
+    /* 我的信息样式结束 */
 }

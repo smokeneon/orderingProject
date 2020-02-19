@@ -1,0 +1,81 @@
+@media all and (min-width: 768px) {
+    /* 我的订单样式开始 */
+
+    .myorder_area{
+        min-height: 16rem;
+        margin-top: 3rem;
+        border-radius: 10px;
+        background-color:#fff;
+    }
+    /* 当商品为空时的样式 */
+    .myorder_area .myorder_empty{
+        align-items: center;
+        margin:0 auto;
+    }
+    .myorder_area .myorder_empty .empty_text{
+        color: #444;
+        font-weight: bolder;
+        font-size: 1.2rem;
+    }
+
+    /* 当商品不为空的样式 */
+    .myorder_area .myorder_content{
+        border-radius: 10px;
+        padding: 1rem 3rem 2rem 3rem;
+        min-height: 17rem;
+    }
+    .myorder_content .myorder_title{
+        border-bottom: 1px solid #EAEAEF;
+        text-align: left;
+        font-size: 1rem;
+        padding: 1rem 0;
+    }
+
+    .myorder_content .single_order{
+        height: 10rem;
+        border-bottom: 1px solid #EAEAEF;
+        display: flex;
+
+    }
+
+    .single_order .order_food_picture{
+        width: 10rem;
+        padding: 0.5rem;
+    }
+    .single_order .order_food_picture img{
+        width: 9rem;
+        height: 9rem;
+        border-radius: 2px;
+    }
+
+    .single_order .order_other_things{
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .single_order .order_other_things .order_message{
+        width: 45%;
+        align-items: center;
+        text-align: left;
+        padding: 0 3rem;
+    }
+    .order_message .single_order_name{
+        font-size: 1.1rem;
+        font-weight: bold;
+        padding: 0 0 0.5rem 0;
+    }
+    .single_order .order_other_things .order_total_price{
+        width: 30%;
+        text-align: left;
+        padding: 0 3rem;
+    }
+
+    .single_order .order_other_things .order_status{
+        width: 25%;
+        text-align: left;
+        padding: 0 3rem;
+    }
+   
+    /* 我的订单样式结束 */
+}
