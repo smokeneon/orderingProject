@@ -6,3 +6,4 @@ export const CHANGE_GETCODE_BTN_TO_TRUE= 'change_getcode_btn_to_true';
 export const CHANGE_GETCODE_BTN_TO_FALSE= 'change_getcode_btn_to_false';
 export const LOGIN_SUCCESS_SAVE_STATE = 'login_success_save_state';
 export const GET_ALL_CATEGORIES = 'get_all_categories';
+export const TO_LOGIN_OUT = 'toLogout';

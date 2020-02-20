@@ -5,6 +5,8 @@ const defaultState = fromJS({
     modalVisible:false,
     showRegisterOrLoginMain:false,
     allowSendCode:true,
+    isLogin:false,
+    token:'',
     homeCategoriesList:[]
 
 });
@@ -25,12 +27,16 @@ export default (state=defaultState,action) => {
             return state.set('allowSendCode',true);
         case actionTypes.CHANGE_GETCODE_BTN_TO_FALSE:
             return state.set('allowSendCode',false);
-        // case actionTypes.LOGIN_SUCCESS_SAVE_STATE:
-        //     return state.merge({
-        //         'isLogin':true,
-        //         'token':action.data,
-        //     })
-
+        case actionTypes.LOGIN_SUCCESS_SAVE_STATE:
+            return state.merge({
+                'isLogin':true,
+                'token':action.data,
+            });
+        case actionTypes.TO_LOGIN_OUT:
+            return state.merge({
+                'isLogin':false,
+                'token':''
+            })
         // 获取主页分类列表
         case actionTypes.GET_ALL_CATEGORIES:
             return state.set('homeCategoriesList',action.data)

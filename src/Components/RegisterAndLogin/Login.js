@@ -53,7 +53,7 @@ class NormalLoginForm extends React.Component {
                     )}
                 </Form.Item>
                 <Form.Item>
-                <Link to="/forget"><div　onClick={()=>this.props.cancelModal()} className="forget_password">忘记密码</div></Link>
+                <Link to="/u/forget"><div　onClick={()=>this.props.cancelModal()} className="forget_password">忘记密码</div></Link>
                     <Button type="primary" htmlType="submit" className="login-form-button">
                        登　录
                     </Button>

@@ -11,7 +11,7 @@ class Classification extends Component {
       };
     
     handleClick = e => {
-        console.log('click ', e);
+        console.log('click ', e.item.props.children);
       };
     render() {
 

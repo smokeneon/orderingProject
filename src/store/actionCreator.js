@@ -130,7 +130,7 @@ export const toLogin = (LoginObject)=>{
             if(res.data.success){
                 console.log(res.data)
                 message.success('登录成功');
-                // dispatch(loginSuccessSaveState(res.data.message));
+                dispatch(loginSuccessSaveState(res.data.message));
                 // 登录成功保存状态和token到sessionStroge
                 sessionStorage.setItem('isLogin',res.data.success);
                 sessionStorage.setItem('token',res.data.message)
@@ -144,7 +144,16 @@ export const toLogin = (LoginObject)=>{
         })
     }
 }
+// 登录成功保存状态
+export const loginSuccessSaveState = (LoginSuccessObject) =>({
+    type:actionTypes.LOGIN_SUCCESS_SAVE_STATE,
+    data:LoginSuccessObject
+})
 
+// 登出
+export const logout = ()=>({
+    type:actionTypes.TO_LOGIN_OUT
+})
 
 export const getAllCategoriesList = (categoriesData)=>({
     type:actionTypes.GET_ALL_CATEGORIES,
@@ -163,7 +172,7 @@ export const getAllCategories = ()=> {
             url:'/api/m/mealKind',
         }).then((res)=>{
             if(res.data.success){
-                console.log(res.data)
+                // console.log(res.data)
                 dispatch(getAllCategoriesList(res.data.data));
             }else{
                 message.warning(res.data.message);

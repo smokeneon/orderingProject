@@ -6,10 +6,11 @@ import {connect} from 'react-redux';
 import * as actionCreators from '../../store/actionCreator';
 import LoginOrRegisterModal from '../RegisterAndLogin/LoginOrRegisterModal';
 import { Link } from 'react-router-dom';
+import { createBrowserHistory } from 'history'; 
 
 const { SubMenu } = Menu;
 class Header extends Component {
-
+    
     handleClick = e => {
         // console.log('click ', e);
         this.setState({
@@ -17,10 +18,15 @@ class Header extends Component {
         });
       };
       logout = ()=>{
+        const history = createBrowserHistory();
         sessionStorage.removeItem("isLogin");
         sessionStorage.removeItem("token");
-        message.success('登出成功')
-        
+        this.props.toLogout();
+        if(sessionStorage.getItem('isLogin')!== 'true'){
+            // history.push('/#/');
+            setTimeout( ()=>  history.go(),1600);
+            message.success('登出成功');
+        } 
       }
 
     render() {
@@ -36,7 +42,7 @@ class Header extends Component {
                             <div className="Header_header_inner">
                                 {/* logo */}
                                 <Col xs={4} sm={4} md={4} lg={4} xl={4}>
-                                    <Link to="/">
+                                    <Link to="/u">
                                         <span className="inner_logo">
                                             <img alt="" src={logo}></img>
                                         </span>
@@ -68,7 +74,7 @@ class Header extends Component {
                                     }
                                     >
                                     {/* <Menu.ItemGroup> */}
-                                        <Menu.Item key="setting:3"><Link to="/me">我的主页</Link></Menu.Item>
+                                        <Menu.Item key="setting:3"><Link to="/u/me">我的主页</Link></Menu.Item>
                                         <Menu.Item key="setting:4"><a onClick={()=>this.logout()}>退出登录</a></Menu.Item>
                                     {/* </Menu.ItemGroup> */}
                                     </SubMenu>
@@ -76,7 +82,7 @@ class Header extends Component {
                                     
                                     <SubMenu
                                     title={
-                                        <Link to="/shoppingcart">
+                                        <Link to="/u/shoppingcart">
                                         <span className="inner_userBtn">
                                             <Icon type="shopping-cart" /> 购物车
                                         </span>
@@ -84,7 +90,7 @@ class Header extends Component {
                                     }
                                     >
                                     {/* <Menu.ItemGroup> */}
-                                        {/* <Menu.Item key="setting:1"><Link to="/shoppingcart">我的购物车</Link></Menu.Item> */}
+                                        {/* <Menu.Item key="setting:1"><Link to="/u/shoppingcart">我的购物车</Link></Menu.Item> */}
                                         {/* <Menu.Item key="setting:2">我购买的商品</Menu.Item> */}
                                     {/* </Menu.ItemGroup> */}
                                    
@@ -121,6 +127,9 @@ const mapDispatchToProps = (dispatch,ownProps) => {
     return {
         showModal(){
             dispatch(actionCreators.showModal())
+        },
+        toLogout(){
+            dispatch(actionCreators.logout())
         }
     }
 }

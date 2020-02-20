@@ -1,0 +1,40 @@
+.admin_main_logo{
+    height: 7rem;
+    background-color: #001529;
+    color: pink;
+}
+
+.admin_main_logo img{
+    width: 3rem;
+    height: 3rem;
+    margin:1.75rem 0;
+    border-radius: 0.2rem;
+    box-shadow: 0 8px 16px 0 rgba(7,17,27,.1);
+}
+.admin_mian_content{
+    text-align: left;
+    padding: 0;
+}
+.admin_mian_content .content_header{
+    background: #fff;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.admin_mian_content .content_header_logout{
+    width: 10%;
+    display: inline-block;
+}
+.admin_mian_content .content_header_logout:hover{
+    color: #D9272E;
+    cursor: pointer;
+}
+.admin_mian_content .content_header_text{
+    display: inline-block;
+    width: 25%;
+    padding: 0 1rem;
+    color: #333;
+    font-size: 1rem;
+    font-weight: bold;
+}

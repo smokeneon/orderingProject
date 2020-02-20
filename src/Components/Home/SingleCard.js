@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import './SingleCard.css';
 import { Button } from 'antd';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-export default class SingleCard extends Component {
+class SingleCard extends Component {
     render() {
         return (
             <>
@@ -21,8 +22,14 @@ export default class SingleCard extends Component {
                             <span className="food_price">￥<span>{this.props.item.unitPrice}</span> </span>
 
                             <span className="food_order">
-                                <Link to="/foodDetail"><Button>详情</Button></Link>
-                                <Button type="primary">立即订餐</Button>
+                                <Link to="/u/foodDetail"><Button>详情</Button></Link>
+                                {
+                                    this.props.isLogin === true || sessionStorage.getItem('isLogin')=== 'true' ?
+                                    <Button type="primary">加入购物车</Button>
+                                    :
+                                    <Button type="primary">立即订餐</Button>
+                                }
+                                
                             </span>
                         </div>
 
@@ -33,3 +40,11 @@ export default class SingleCard extends Component {
         )
     }
 }
+const mapStateToProps = (state, ownProps) => {
+    return {
+        isLogin: state.get('isLogin')
+    }
+}
+
+
+export default connect(mapStateToProps,null)(SingleCard) ;
