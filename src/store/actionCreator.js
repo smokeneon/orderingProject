@@ -183,3 +183,9 @@ export const getAllCategories = ()=> {
         })
     }
 }
+
+//改变管理sider的选择状态
+export const changeSiderSelectState = (key)=>({
+    type:actionTypes.CHANGE_ADMIN_SIDER_STATE,
+    data:key
+})

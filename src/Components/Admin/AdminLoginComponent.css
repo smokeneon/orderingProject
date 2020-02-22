@@ -1,12 +1,12 @@
 .admin_login_panel{
     width: 100%;
-    height: 53rem;
+    height: 88vh;
     /* background-color: yellowgreen; */
     display: flex;
     align-items: center;
 }
 .admin_login_panel .admin_login_area{
-    width: 30%;
+    /* width: 30%; */
     height: 36rem;
     background-color: #fff;
     /* align-items: center; */
