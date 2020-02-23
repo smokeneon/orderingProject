@@ -10,7 +10,8 @@ import AdminHome from './Page/Backstage/AdminHome';
 import AdminLogin from './Page/Backstage/AdminLogin';
 import ClassifyAdmin from './Page/Backstage/ClassifyAdmin';
 import DataStatistics from './Page/Backstage/DataStatistics';
-import DishesAdmin from './Page/Backstage/DishesAdmin';
+import DishesList from './Page/Backstage/DishesList';
+import DishesAdd from './Page/Backstage/DishesAdd';
 import OrdersAdmin from './Page/Backstage/OrdersAdmin';
 import UserAdmin from './Page/Backstage/UserAdmin';
 import { HashRouter, Route } from 'react-router-dom';
@@ -29,7 +30,8 @@ function App() {
         <Route path='/a/login' exact component={AdminLogin}></Route>
         <Route path='/a/classify' exact component={ClassifyAdmin}></Route>
         <Route path='/a/statistics' exact component={DataStatistics}></Route>
-        <Route path='/a/dishes' exact component={DishesAdmin}></Route>
+        <Route path='/a/disheslist' exact component={DishesList}></Route>
+        <Route path='/a/dishesadd' exact component={DishesAdd}></Route>
         <Route path='/a/orders' exact component={OrdersAdmin}></Route>
         <Route path='/a/user' exact component={UserAdmin}></Route>
       </HashRouter>

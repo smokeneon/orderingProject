@@ -3,6 +3,7 @@ import { Layout, Breadcrumb } from 'antd';
 import AdminSider from '../../Components/Admin/common/AdminSider';
 import AdminHeader from '../../Components/Admin/common/AdminHeader';
 import AdminFooter from '../../Components/Admin/common/AdminFooter';
+import HomeContent from '../../Components/Admin/AdminHome/HomeContent';
 const { Content } = Layout;
 
 class AdminHome extends Component {
@@ -23,10 +24,8 @@ class AdminHome extends Component {
             </Breadcrumb>
             
             {/* 内容区域 */}
-            <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-              <h1>欢迎使用文理订餐平台后台管理系统</h1>
-            </div>
-
+            <HomeContent />
+         
           </Content>
           <AdminFooter/>
         </Layout>

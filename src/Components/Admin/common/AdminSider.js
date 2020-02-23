@@ -7,12 +7,14 @@ import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 
 const { Sider } = Layout;
+const { SubMenu } = Menu;
 class AdminSider extends Component {
     state = {
         collapsed: false,
     };
 
     handleClick = (e) => {
+        console.log(e)
         this.props.changeSiderSelectState(e.key)
     }
     onCollapse = collapsed => {
@@ -32,39 +34,87 @@ class AdminSider extends Component {
                         <Menu.Item key="1">
                             <Link to="/a">
                             <Icon type="home" />
-                            <span>我的主页</span>
+                            <span>主页</span>
                             </Link>
                         </Menu.Item>
+
+
+                        <SubMenu
+                        key="sub1"
+                        title={
+                            <span>
+                            <Icon type="cloud" />
+                            <span>菜品</span>
+                            </span>
+                        }
+                        >
                         <Menu.Item key="2">
-                            <Link to="/a/classify">
-                            <Icon type="tag" />
-                            <span>分类管理</span>
+                            <Link to="/a/disheslist">
+                            菜品列表
                             </Link>
                         </Menu.Item>
                         <Menu.Item key="3">
-                            <Link to="/a/dishes">
-                            <Icon type="cloud" />
-                            <span>菜品管理</span>
+                            <Link to="/a/dishesadd">
+                            添加菜品
                             </Link>
                         </Menu.Item>
                         <Menu.Item key="4">
-                            <Link to="/a/orders">
+                            <Link to="/a/classify">
+                            菜品分类
+                            </Link>
+                        </Menu.Item>
+                      
+                        </SubMenu>
+
+                        <SubMenu
+                        key="sub2"
+                        title={
+                            <span>
                             <Icon type="file-done" />
-                            <span>订单管理</span>
-                            </Link>
-                        </Menu.Item>
+                            <span>订单</span>
+                            </span>
+                        }
+                        >
                         <Menu.Item key="5">
-                            <Link to="/a/statistics">
-                            <Icon type="pie-chart" />
-                            <span>数据统计</span>
-                            </Link>
+                        <Link to="/a/orders">
+                            订单管理
+                        </Link>
                         </Menu.Item>
+                        </SubMenu>
+            
+                        <SubMenu
+                        key="sub3"
+                        title={
+                            <span>
+                             <Icon type="pie-chart" />
+                            <span>统计</span>
+                            </span>
+                        }
+                        >
                         <Menu.Item key="6">
-                            <Link to="/a/user">
-                            <Icon type="user" />
-                            <span>用户管理</span>
-                            </Link>
+                        <Link to="/a/statistics">
+                            数据统计
+                        </Link>
                         </Menu.Item>
+                        </SubMenu>
+
+                        <SubMenu
+                        key="sub4"
+                        title={
+                            <span>
+                             <Icon type="user" />
+                            <span>用户</span>
+                            </span>
+                        }
+                        >
+                        <Menu.Item key="7">
+                        <Link to="/a/user">
+                            用户管理
+                        </Link>
+                        </Menu.Item>
+                        </SubMenu>
+            
+                    
 
                     </Menu>
                 </Sider>

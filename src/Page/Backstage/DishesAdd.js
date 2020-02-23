@@ -5,7 +5,7 @@ import AdminHeader from '../../Components/Admin/common/AdminHeader';
 import AdminFooter from '../../Components/Admin/common/AdminFooter';
 const { Content } = Layout;
 
-class DishesAdmin extends Component {
+class DishesAdd extends Component {
 
   render() {
     return (
@@ -24,7 +24,7 @@ class DishesAdmin extends Component {
             
             {/* 内容区域 */}
             <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-              <h1>菜品管理</h1>
+              <h1>添加菜品</h1>
             </div>
 
           </Content>
@@ -35,6 +35,6 @@ class DishesAdmin extends Component {
     );
   }
 }
-export default DishesAdmin;
+export default DishesAdd;
 
 

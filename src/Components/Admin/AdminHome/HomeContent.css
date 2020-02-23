@@ -1,0 +1,16 @@
+.admin_home_title{
+    padding: 1.5rem 1.5rem;
+    background: #fff;
+    min-height: 36rem;
+    display: flex;
+    align-items: center;
+}
+
+.admin_home_title h1{
+    align-items: center;
+    font-size: 2rem;
+    color: #333;
+    font-weight: bolder;
+    margin: 0 auto;
+    overflow: hidden;
+}
