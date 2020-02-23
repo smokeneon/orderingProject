@@ -3,6 +3,7 @@ import { Layout, Breadcrumb } from 'antd';
 import AdminSider from '../../Components/Admin/common/AdminSider';
 import AdminHeader from '../../Components/Admin/common/AdminHeader';
 import AdminFooter from '../../Components/Admin/common/AdminFooter';
+import DishesAddContent from '../../Components/Admin/DishesAdd/DishesAddContent';
 const { Content } = Layout;
 
 class DishesAdd extends Component {
@@ -23,9 +24,7 @@ class DishesAdd extends Component {
             </Breadcrumb>
             
             {/* 内容区域 */}
-            <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-              <h1>添加菜品</h1>
-            </div>
+           <DishesAddContent/>
 
           </Content>
           <AdminFooter/>

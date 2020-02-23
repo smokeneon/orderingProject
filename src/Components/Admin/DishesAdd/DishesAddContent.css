@@ -1,0 +1,17 @@
+.dishes_add_main{
+    width: 100%;
+    min-height: 49rem; 
+}
+
+.dishes_add_main .dishes_add_area{
+    min-height: 48rem;
+    border-radius: 3px;
+    padding: 1rem;
+    background-color:#fff;
+    margin: 0 auto;
+}
+
+
+.dishes_add_main .dishes_add_content{
+    margin: 2rem 0;
+}
