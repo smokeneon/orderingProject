@@ -53,7 +53,7 @@ class Classification extends Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        homeCategoriesList: state.get('homeCategoriesList')
+        homeCategoriesList: state.get('dishesCategoriesList')
     }
 }
 

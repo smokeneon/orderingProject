@@ -1,10 +1,10 @@
 .dishes_add_main{
     width: 100%;
-    min-height: 49rem; 
+    min-height: 45rem; 
 }
 
 .dishes_add_main .dishes_add_area{
-    min-height: 48rem;
+    min-height: 40rem;
     border-radius: 3px;
     padding: 1rem;
     background-color:#fff;
@@ -13,5 +13,10 @@
 
 
 .dishes_add_main .dishes_add_content{
-    margin: 2rem 0;
+    margin: 6rem 0;
+}
+
+.dishes_add_main .dishes_add_content .submit_button{
+    /* background-color: red; */
+    text-align: right;
 }

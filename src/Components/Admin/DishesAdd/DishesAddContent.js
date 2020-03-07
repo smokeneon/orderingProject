@@ -1,29 +1,57 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './DishesAddContent.css';
-import { Row,Upload, Col, Form, Input, DatePicker, TimePicker, Select, Cascader, InputNumber,Icon } from 'antd';
-
+import { Row, Col, Form, Input, Upload, Button ,Select} from 'antd';
+import { UploadOutlined } from '@ant-design/icons';
+import {connect}　from 'react-redux';
+import * as actionCreators from '../../../store/actionCreator';
 const { Option } = Select;
+class DishesAddContent extends React.Component {
+    state={
+        searchValue:0,
+    }
+    formItemLayout = {
+        labelCol: {
+            xs: { span: 24 },
+            sm: { span: 5 },
+            md: { span: 5 },
+            lg: { span: 5 },
+            xl: { span: 5 }
+        },
+        wrapperCol: {
+            xs: { span: 24 },
+            sm: { span: 12 },
+            md: { span: 16 },
+            lg: { span: 16 },
+            xl: { span: 16 }
+        },
+    };
 
-const formItemLayout = {
-    labelCol: {
-        xs: { span: 24 },
-        sm: { span: 5 },
-        md: { span: 5 },
-        lg: { span: 5 },
-        xl: { span: 5 }
-    },
-    wrapperCol: {
-        xs: { span: 24 },
-        sm: { span: 12 },
-        md: { span: 16 },
-        lg: { span: 16 },
-        xl: { span: 16 }
-    },
-};
+    handleSubmit = e => {
 
-class DishesAddContent extends Component {
+        e.preventDefault();
+        this.props.form.validateFields((err, values) => {
+            if (!err) {
+                console.log('Received values of form: ', values);
+                // this.props.toLogin(values);
+            }
+        });
+    };
+
+    normFile = e => {
+        console.log('Upload event:', e);
+        if (Array.isArray(e)) {
+            return e;
+        }
+        return e && e.fileList;
+    };
+
+    handleChange=(value) =>{
+        console.log(`selected ${value}`);
+    }
+
     render() {
         const { getFieldDecorator } = this.props.form;
+        
         return (
             <>
                 <Row type="flex" >
@@ -33,115 +61,94 @@ class DishesAddContent extends Component {
                             <div className="dishes_add_area">
                                 <div className="dishes_add_title">添加菜品</div>
                                 <div className="dishes_add_content">
-                                    <Form {...formItemLayout}>
+                                    <Form {...this.formItemLayout} onSubmit={this.handleSubmit}>
+                                        
                                         <Form.Item
-                                            label="Fail"
-                                            validateStatus="error"
-                                            help="Should be combination of numbers & alphabets"
+                                            label="菜品名称"
                                         >
-                                            <Input placeholder="unavailable choice" id="error" />
-                                        </Form.Item>
-
-                                        <Form.Item label="Warning" validateStatus="warning">
-                                            <Input placeholder="Warning" id="warning" />
-                                        </Form.Item>
-
-                                        <Form.Item
-                                            label="Validating"
-                                            hasFeedback
-                                            validateStatus="validating"
-                                            help="The information is being validated..."
-                                        >
-                                            <Input placeholder="I'm the content is being validated" id="validating" />
-                                        </Form.Item>
-
-                                        <Form.Item label="Success" hasFeedback validateStatus="success">
-                                            <Input placeholder="I'm the content" id="success" />
-                                        </Form.Item>
-
-                                        <Form.Item label="Warning" hasFeedback validateStatus="warning">
-                                            <Input placeholder="Warning" id="warning2" />
-                                        </Form.Item>
-
-                                        <Form.Item
-                                            label="Fail"
-                                            hasFeedback
-                                            validateStatus="error"
-                                            help="Should be combination of numbers & alphabets"
-                                        >
-                                            <Input placeholder="unavailable choice" id="error2" />
-                                        </Form.Item>
-
-                                        <Form.Item label="Success" hasFeedback validateStatus="success">
-                                            <DatePicker style={{ width: '100%' }} />
-                                        </Form.Item>
-
-                                        <Form.Item label="Warning" hasFeedback validateStatus="warning">
-                                            <TimePicker style={{ width: '100%' }} />
-                                        </Form.Item>
-
-                                        <Form.Item label="Error" hasFeedback validateStatus="error">
-                                            <Select defaultValue="1">
-                                                <Option value="1">Option 1</Option>
-                                                <Option value="2">Option 2</Option>
-                                                <Option value="3">Option 3</Option>
-                                            </Select>
-                                        </Form.Item>
-
-                                        <Form.Item
-                                            label="Validating"
-                                            hasFeedback
-                                            validateStatus="validating"
-                                            help="The information is being validated..."
-                                        >
-                                            <Cascader defaultValue={['1']} options={[]} />
-                                        </Form.Item>
-
-                                        <Form.Item label="inline" style={{ marginBottom: 0 }}>
-                                            <Form.Item
-                                                validateStatus="error"
-                                                help="Please select the correct date"
-                                                style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}
-                                            >
-                                                <DatePicker />
-                                            </Form.Item>
-                                            <span style={{ display: 'inline-block', width: '24px', textAlign: 'center' }}>-</span>
-                                            <Form.Item style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
-                                                <DatePicker />
-                                            </Form.Item>
-                                        </Form.Item>
-
-                                        <Form.Item label="Success" hasFeedback validateStatus="success">
-                                            <InputNumber style={{ width: '100%' }} />
-                                        </Form.Item>
-
-                                        <Form.Item label="Success" hasFeedback validateStatus="success">
-                                            <Input allowClear placeholder="with allowClear" />
-                                        </Form.Item>
-
-                                        <Form.Item label="Warning" hasFeedback validateStatus="warning">
-                                            <Input.Password placeholder="with input password" />
-                                        </Form.Item>
-
-                                        <Form.Item label="Error" hasFeedback validateStatus="error">
-                                            <Input.Password allowClear placeholder="with input password and allowClear" />
-                                        </Form.Item>
-
-                                        <Form.Item label="Dragger">
-                                            {getFieldDecorator('dragger', {
-                                                valuePropName: 'fileList',
-                                                getValueFromEvent: this.normFile,
+                                            {getFieldDecorator('dishName', {
+                                                rules: [{ required: true, message: '请输入菜品名称' }],
                                             })(
-                                                <Upload.Dragger name="files" action="/upload.do">
-                                                    <p className="ant-upload-drag-icon">
-                                                        <Icon type="inbox" />
-                                                    </p>
-                                                    <p className="ant-upload-text">Click or drag file to this area to upload</p>
-                                                    <p className="ant-upload-hint">Support for a single or bulk upload.</p>
-                                                </Upload.Dragger>,
+                                                // 菜品名
+                                                <Input />
                                             )}
+
                                         </Form.Item>
+                                        <Form.Item
+                                            label="菜品单价"
+                                        >
+                                            {getFieldDecorator('dishUnitPrice', {
+                                                rules: [{ required: true, message: '请输入菜品单价' }],
+                                            })(
+                                                // 菜品名
+                                                <Input />
+                                            )}
+
+                                        </Form.Item>
+                                        <Form.Item
+                                            label="菜品分类"
+                                        >
+                                            {getFieldDecorator('dishCategory', {
+                                                rules: [{ required: true, message: '请选择菜品分类' }],
+                                            })(
+                                                <Select
+                                                 onChange={this.handleChange}>
+                                                {
+                                                    this.props.dishesCategoriesList.map((item,index)=>{
+                                                        return (
+                                                            <Option key={index} value={item.name}>{item.name}</Option>
+                                                        )
+                                                    })
+                                                }
+                                               
+                                            </Select>
+                                             )}
+
+                                        </Form.Item>
+                                        <Form.Item
+                                            label="菜品描述"
+                                        >
+                                            {getFieldDecorator('dishDescribe', {
+                                                rules: [{ required: true, message: '请简要描述菜品信息' }],
+                                            })(
+                                                <Input.TextArea />
+                                            )}
+
+                                        </Form.Item>
+
+
+                                        <Form.Item
+                                            name="upload"
+                                            label="菜品图片"
+                                            valuepropname="fileList"
+                                            getvaluefromevent={this.normFile}
+                                            extra="选择图片"
+                                        >
+                                            {getFieldDecorator('dishPicture', {
+                                                rules: [{ required: true, message: '请上传菜品图片' }],
+                                            })(
+                                                <Upload name="logo" action="/upload.do" listType="picture">
+                                                    <Button>
+                                                        <UploadOutlined /> 点击上传
+                                                    </Button>
+                                                </Upload>
+                                            )}
+
+                                        </Form.Item>
+
+                                        <Form.Item
+                                         label=" "
+                                        >
+                                            <div className="submit_button">
+                                            <Button　size="large" type="primary" htmlType="submit">
+                                                提交
+                                            </Button>
+                                            </div>
+                                            
+                                        </Form.Item>
+
                                     </Form>
+
                                 </div>
                             </div>
                         </Col>
@@ -149,10 +156,26 @@ class DishesAddContent extends Component {
                 </Row>
 
             </>
-        )
+        );
+    }
+    componentDidMount(){
+        this.props.getDishesCategories();
     }
 }
 
-const WrappedDemo = Form.create({ name: 'validate_other' })(DishesAddContent);
+const DishesAddContentForm = Form.create({ name: 'normal_login' })(DishesAddContent);
 
-export default WrappedDemo;
+
+const mapStateToProps = (state, ownProps) => {
+    return {
+        dishesCategoriesList: state.get('dishesCategoriesList'),
+    }
+}
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        getDishesCategories: () => {
+            dispatch(actionCreators.getAllCategories())
+        }
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(DishesAddContentForm) ;

@@ -7,7 +7,7 @@ const defaultState = fromJS({
     allowSendCode:true,
     isLogin:false,
     token:'',
-    homeCategoriesList:[],
+    dishesCategoriesList:[],
     adminSiderSelectedState:'1'
 
 });
@@ -40,7 +40,7 @@ export default (state=defaultState,action) => {
             })
         // 获取主页分类列表
         case actionTypes.GET_ALL_CATEGORIES:
-            return state.set('homeCategoriesList',action.data);
+            return state.set('dishesCategoriesList',action.data);
         case actionTypes.CHANGE_ADMIN_SIDER_STATE:
             return state.set('adminSiderSelectedState',action.data+'');
         default:
