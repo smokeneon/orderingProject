@@ -189,3 +189,29 @@ export const changeSiderSelectState = (key)=>({
     type:actionTypes.CHANGE_ADMIN_SIDER_STATE,
     data:key
 })
+
+//增加菜品
+
+export const addDish = (dishObject)=>{
+    return (dispatch) => {
+        let data = dishObject;
+        axios({
+            method:'post',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            url:'/api/authentication/m/meal',
+            data:Qs.stringify(data)
+        }).then((res)=>{
+            if(res.data.success){
+               
+                // 如果成功
+            }else{
+                message.warning(res.data.message);
+            }
+            
+        }).catch((error)=>{
+            message.error('增加菜品失败：',error);
+        })
+    }
+}
