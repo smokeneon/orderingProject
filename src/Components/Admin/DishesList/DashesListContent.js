@@ -54,7 +54,7 @@ export default class DashesListContent extends Component {
         axios({
           method: 'get',
           headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Type': 'application/json',
           },
           url: '/api/m/meal',
         }).then((res) => {

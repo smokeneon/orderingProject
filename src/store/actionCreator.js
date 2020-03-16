@@ -194,18 +194,26 @@ export const changeSiderSelectState = (key)=>({
 
 export const addDish = (dishObject)=>{
     return (dispatch) => {
-        let data = dishObject;
+        let data = {
+            name:dishObject.dishName,
+            description:dishObject.dishDescribe,
+            price:parseFloat(dishObject.dishUnitPrice),
+            mealKind:dishObject.dishCategory,
+            picUrl:dishObject.dishPicture.file.response.data
+        }
+        console.log('actionCreator data',data);
+        
+        
         axios({
             method:'post',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
-            url:'/api/authentication/m/meal',
+            url:'/api/m/meal',
             data:Qs.stringify(data)
         }).then((res)=>{
             if(res.data.success){
-               
-                // 如果成功
+               message.success('增加菜品成功')
             }else{
                 message.warning(res.data.message);
             }

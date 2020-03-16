@@ -8,7 +8,7 @@ const defaultState = fromJS({
     isLogin:false,
     token:'',
     dishesCategoriesList:[],
-    adminSiderSelectedState:'1'
+    adminSiderSelectedState:'1',
 
 });
 

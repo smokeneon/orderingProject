@@ -1,14 +1,51 @@
 import React from 'react'
 import './DishesAddContent.css';
-import { Row, Col, Form, Input, Upload, Button ,Select} from 'antd';
+import { Row, Col, Form, Input, Upload, Button ,Select,message} from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import {connect}　from 'react-redux';
 import * as actionCreators from '../../../store/actionCreator';
 const { Option } = Select;
+
 class DishesAddContent extends React.Component {
-    state={
-        searchValue:0,
+    state = {
+        fileListLength:0
     }
+    //图片上传前判断只能上传一张图片
+    beforeUploadMehtod=(file)=>{
+        // console.log('beforeUpload');
+        // console.log(file);
+        // console.log(this.state.fileListLength);
+        if(this.state.fileListLength === 0){
+            // console.log(this);
+            this.state.fileListLength = this.state.fileListLength+1
+            return true  
+        }else{
+            message.error('只能上传一张图片')
+            return false
+        }
+        return false
+      }
+      //上传组件参数
+    uploadPoprs = {
+        name: 'pic',
+        accept: 'image/webp,image/apng,*/*;q=0.8',
+        action: '/api/m/meal/pic',
+        listType:'picture'
+    };
+    //上传完图片执行回调
+    onChange(info) {
+        if (info.file.status !== 'uploading') {}
+        if (info.file.status === 'done') {
+            // console.log(info.file, info.fileList);
+            // console.log('从这开始打印success');
+            // console.log(info.file.response.data)
+        //   this.props.getResponseOfPicURL(info.file.response.data);
+          message.success(`${info.file.name} 文件上传成功`);
+        } else if (info.file.status === 'error') {
+          message.error(`${info.file.name} 文件上传失败`);
+        }
+    }
+    //表单样式
     formItemLayout = {
         labelCol: {
             xs: { span: 24 },
@@ -25,29 +62,30 @@ class DishesAddContent extends React.Component {
             xl: { span: 16 }
         },
     };
-
+    //提交表单
     handleSubmit = e => {
 
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                console.log('Received values of form: ', values);
+                // console.log('Received values of form: ', values);
+                this.props.toAddDish(values);
                 // this.props.toLogin(values);
             }
         });
     };
 
-    normFile = e => {
-        console.log('Upload event:', e);
-        if (Array.isArray(e)) {
-            return e;
-        }
-        return e && e.fileList;
-    };
-
-    handleChange=(value) =>{
-        console.log(`selected ${value}`);
-    }
+    // normFile = e => {
+    //     console.log('Upload event:', e);
+    //     if (Array.isArray(e)) {
+    //         return e;
+    //     }
+    //     return e && e.fileList;
+    // };
+    //下拉框选择
+    // handleChange=(value) =>{
+        // console.log(`selected ${value}`);
+    // }
 
     render() {
         const { getFieldDecorator } = this.props.form;
@@ -56,8 +94,8 @@ class DishesAddContent extends React.Component {
             <>
                 <Row type="flex" >
                     <div className="dishes_add_main">
-                        <Col xs={0} sm={0} md={7} lg={7} xl={7}></Col>
-                        <Col xs={24} sm={24} md={10} lg={10} xl={10}>
+                        <Col xs={0} sm={0} md={4} lg={6} xl={6}></Col>
+                        <Col xs={24} sm={24} md={16} lg={10} xl={10}>
                             <div className="dishes_add_area">
                                 <div className="dishes_add_title">添加菜品</div>
                                 <div className="dishes_add_content">
@@ -121,13 +159,16 @@ class DishesAddContent extends React.Component {
                                             name="upload"
                                             label="菜品图片"
                                             valuepropname="fileList"
-                                            getvaluefromevent={this.normFile}
+                                            // getvaluefromevent={this.normFile}
                                             extra="选择图片"
                                         >
                                             {getFieldDecorator('dishPicture', {
                                                 rules: [{ required: true, message: '请上传菜品图片' }],
                                             })(
-                                                <Upload name="logo" action="/upload.do" listType="picture">
+                                                <Upload {...this.uploadPoprs}
+                                                onChange={(info)=>this.onChange(info)}
+                                                beforeUpload={(file)=>this.beforeUploadMehtod(file)}
+                                                >
                                                     <Button>
                                                         <UploadOutlined /> 点击上传
                                                     </Button>
@@ -175,6 +216,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         getDishesCategories: () => {
             dispatch(actionCreators.getAllCategories())
+        },
+        toAddDish:(addFormObj) => {
+            dispatch(actionCreators.addDish(addFormObj))
         }
     }
 }

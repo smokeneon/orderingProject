@@ -8,3 +8,4 @@ export const LOGIN_SUCCESS_SAVE_STATE = 'login_success_save_state';
 export const GET_ALL_CATEGORIES = 'get_all_categories';
 export const TO_LOGIN_OUT = 'toLogout';
 export const CHANGE_ADMIN_SIDER_STATE='change_admin_sider_state';
+export const GET_RESPONSE_PIC_URL = 'get_response_pic_url';
