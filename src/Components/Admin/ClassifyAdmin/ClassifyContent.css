@@ -1,0 +1,17 @@
+.panel{
+    padding: 1.5rem;
+    background-color: #fff;
+    min-height: 45rem;
+}
+.list_item{
+    background-color: green;
+    width: 100%;
+}
+.list span{
+    display: inline-block;
+}
+
+.list_item .item_name{
+    width: 70%;
+    background-color: red;
+}

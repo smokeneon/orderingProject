@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { Layout, Breadcrumb } from 'antd';
+import { Layout, Breadcrumb,Row,Col } from 'antd';
 import AdminSider from '../../Components/Admin/common/AdminSider';
 import AdminHeader from '../../Components/Admin/common/AdminHeader';
 import AdminFooter from '../../Components/Admin/common/AdminFooter';
+import ClassifyContent from '../../Components/Admin/ClassifyAdmin/ClassifyContent';
 const { Content } = Layout;
 
 class ClassifyAdmin extends Component {
@@ -21,11 +22,12 @@ class ClassifyAdmin extends Component {
               <Breadcrumb.Item>登录</Breadcrumb.Item>
               <Breadcrumb.Item>后台管理</Breadcrumb.Item>
             </Breadcrumb>
-            
-            {/* 内容区域 */}
-            <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-              <h1>分类管理</h1>
-            </div>
+            <Row type="flex" justify="center" >
+              <Col xs={24} sm={24} md={16} lg={19} xl={16}>
+              {/* 内容区域 */}
+              <ClassifyContent />
+              </Col>
+            </Row>
 
           </Content>
           <AdminFooter/>

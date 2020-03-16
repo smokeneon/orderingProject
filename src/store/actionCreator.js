@@ -204,12 +204,14 @@ export const addDish = (dishObject)=>{
         console.log('actionCreator data',data);
         
         
+        
         axios({
             method:'post',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
+                'Authority':sessionStorage.getItem('token')
             },
-            url:'/api/m/meal',
+            url:'/api/m/admin/meal',
             data:Qs.stringify(data)
         }).then((res)=>{
             if(res.data.success){
