@@ -25,8 +25,8 @@ class AdminHeader extends Component {
               <span className="content_header_text">
                 文理订餐后台
               </span>
-              <span className="content_header_logout" onClick={()=>this.logout()}>
-                <Icon type="logout" /> 登出
+              <span className="content_header_logout">
+                <span className="logout_logo" onClick={()=>this.logout()}><Icon type="logout" /> 登出</span>
               </span>
           </Header>
             </>

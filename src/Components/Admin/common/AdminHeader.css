@@ -12,7 +12,7 @@
     display: inline-block;
     overflow: hidden;
 }
-.content_header_logout:hover{
+.content_header_logout .logout_logo:hover{
     color: #D9272E;
     cursor: pointer;
 }
