@@ -1,17 +1,28 @@
 .panel{
-    padding: 1.5rem;
+    padding: 1.5rem 1.5rem 2rem 1.5rem;
     background-color: #fff;
-    min-height: 45rem;
+    min-height: 30rem;
+
 }
 .list_item{
-    background-color: green;
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
-.list span{
+.list_item span{
     display: inline-block;
 }
 
 .list_item .item_name{
-    width: 70%;
-    background-color: red;
+    width: 60%;
+}
+.list_item .item_edit{
+    width: 15%;
+}
+.list_item .item_edit a{
+    padding: 0 0.5rem;
+}
+.list_footer{
+    text-align: right;
 }

@@ -1,10 +1,10 @@
 import React from 'react';
-import { Table, Divider, message, List } from 'antd';
+import {List,Button} from 'antd';
+import { PlusOutlined,EditOutlined,DeleteOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../../store/actionCreator';
 import './ClassifyContent.css';
 import { useEffect } from 'react';
-const { Column } = Table;
 function ClassifyContent(props) {
   useEffect(() => {
     props.getDishesCategories()
@@ -19,8 +19,7 @@ function ClassifyContent(props) {
         <h1>分类管理</h1>
         <List
           size="large"
-          header={<div>Header</div>}
-          footer={<div>Footer</div>}
+          footer={<div className="list_footer"><Button type="primary"><PlusOutlined />添加</Button></div>}
           bordered
           dataSource={data}
           renderItem={item => (
@@ -30,10 +29,8 @@ function ClassifyContent(props) {
                   {item.name}
                 </span>
                   <span className="item_edit">
-                  编辑
-                  </span>
-                  <span className="item_delete">
-                  删除
+                  <a><EditOutlined /> </a>
+                  <a><DeleteOutlined /></a>
                   </span>
               </div>
               
@@ -41,31 +38,6 @@ function ClassifyContent(props) {
 
           )}
         />
-
-        <Table dataSource={data}
-          //   // dataSource={this.state.data}
-          //   pagination={this.state.pagination}
-          //   loading={this.state.loading}
-          //   onChange={this.handleTableChange}
-          scroll={{ x: false, y: false }}
-        >
-          <Column width="10%" title="编号" dataIndex="id" key="id" />
-          <Column width="60%" title="分类名称" dataIndex="name" key="name" />
-
-          <Column
-            width="30%"
-            title="操作"
-            key="options"
-            render={(text, record) => (
-              <span>
-                <Divider type="vertical" />
-                <a>修改</a>
-                <Divider type="vertical" />
-                <a>删除</a>
-              </span>
-            )}
-          />
-        </Table>
       </div>
     </>
   )

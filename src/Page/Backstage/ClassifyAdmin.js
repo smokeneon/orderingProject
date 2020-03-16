@@ -23,7 +23,7 @@ class ClassifyAdmin extends Component {
               <Breadcrumb.Item>后台管理</Breadcrumb.Item>
             </Breadcrumb>
             <Row type="flex" justify="center" >
-              <Col xs={24} sm={24} md={16} lg={19} xl={16}>
+              <Col xs={24} sm={24} md={12} lg={12} xl={12}>
               {/* 内容区域 */}
               <ClassifyContent />
               </Col>
