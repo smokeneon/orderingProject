@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Header from './Components/common/Header';
+import Welcome from './Page/Welcome';
 import Home from './Page/Home';
 import ShoppingCart from './Page/ShoppingCart';
 import ForgetPassword from './Page/ForgetPassword';
@@ -20,6 +21,7 @@ function App() {
   return (
     <div className="App">
       <HashRouter>
+        <Route path="/" exact component={Welcome}></Route>
         <Route path='/u' component={Header}></Route>
         <Route path='/u' exact component={Home} ></Route>
         <Route path='/u/shoppingCart' exact component={ShoppingCart}></Route>
