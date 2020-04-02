@@ -6,7 +6,6 @@
 
 .welcome-content{
     width: 80%;
-    height: 40rem;
     padding: 1rem;
     background-color: #fff;
     position: absolute;
@@ -14,5 +13,16 @@
     left: 50%;
     transform: translate(-50%,-50%);
     border-radius: 0.5rem;
+    box-shadow: 0 8px 16px 0 rgba(7,17,27,.1);
    
+}
+.content-header{
+  padding:3rem 0;
+  font-size: 3rem;
+  text-align: center;
+  font-weight: 900;
+}
+
+.welcome-content Button {
+  margin: 0 1rem;
 }
