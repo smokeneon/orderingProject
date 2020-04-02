@@ -2,7 +2,9 @@ import axios from 'axios';
 import * as actionTypes from './actionTypes'
 import { message } from 'antd';
 import Qs from 'qs';
+import { createBrowserHistory } from 'history'; 
 
+const history = createBrowserHistory();
 export const showModal = () => ({
     type: actionTypes.SHOW_MODAL
 });
@@ -190,8 +192,16 @@ export const changeSiderSelectState = (key)=>({
     data:key
 })
 
-//增加菜品
+//显示addClissifyContent Modal
+export const classifyShowAddModal = ()=>({
+    type:actionTypes.CLASSIFY_SHOW_ADD_MODAL
+})
 
+export const classifyCancelAddModal = ()=>({
+    type:actionTypes.CLASSIFY_CANCEL_ADD_MODAL
+})
+
+//增加菜品
 export const addDish = (dishObject)=>{
     return (dispatch) => {
         let data = {
@@ -225,3 +235,98 @@ export const addDish = (dishObject)=>{
         })
     }
 }
+
+
+//添加分类
+export const addCategory = (categoryName)=>{
+    return (dispatch) => {
+        let data = {
+            name:categoryName
+        };
+        console.log('actionCreator data',data); 
+        axios({
+            method:'post',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Authority':sessionStorage.getItem('token')
+            },
+            url:'/api/m/admin/mealKind/'+categoryName,
+            data:Qs.stringify(data)
+        }).then((res)=>{
+            if(res.data.success){
+               message.success('增加分类成功');
+               history.push('/#/a/classify');
+               setTimeout( ()=>  history.go(),1600);
+            }else{
+                message.warning(res.data.message);
+            }
+
+        }).catch((error)=>{
+            message.error('增加分类失败：',error);
+        })
+    }
+}
+
+//删除分类
+export const deleteCategory = (categoryName)=>{
+    return (dispatch) => {
+        let data = {
+            name:categoryName
+        };
+        console.log('actionCreator data',data); 
+        axios({
+            method:'delete',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Authority':sessionStorage.getItem('token')
+            },
+            url:'/api/m/admin/mealKind/'+categoryName,
+            data:Qs.stringify(data)
+        }).then((res)=>{
+            if(res.data.success){
+               message.success('删除分类成功');
+               history.push('/#/a/classify');
+               setTimeout( ()=>  history.go(),1600);
+            }else{
+                message.warning(res.data.message);
+            }
+
+        }).catch((error)=>{
+            message.error('删除分类失败：',error);
+        })
+    }
+}
+
+//编辑分类
+export const editCategory = (oldCategoryName,newCategoryName)=>{
+    return (dispatch) => {
+        let data = {
+            oldName:oldCategoryName,
+            newName:newCategoryName
+        };
+        console.log('actionCreator data',data); 
+        axios({
+            method:'put',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Authority':sessionStorage.getItem('token')
+            },
+            url:'/api/m/admin/mealKind/'+oldCategoryName,
+            data:Qs.stringify(data)
+        }).then((res)=>{
+            if(res.data.success){
+               message.success('修改分类成功');
+               history.push('/#/a/classify');
+               setTimeout( ()=>  history.go(),1600);
+            }else{
+                message.warning(res.data.message);
+
+            }
+
+        }).catch((error)=>{
+            message.error('修改分类失败：',error);
+        })
+    }
+}
+
+

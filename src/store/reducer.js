@@ -9,6 +9,7 @@ const defaultState = fromJS({
     token:'',
     dishesCategoriesList:[],
     adminSiderSelectedState:'1',
+    classifyAddModalShowOrCancel:false,
 
 });
 
@@ -43,6 +44,10 @@ export default (state=defaultState,action) => {
             return state.set('dishesCategoriesList',action.data);
         case actionTypes.CHANGE_ADMIN_SIDER_STATE:
             return state.set('adminSiderSelectedState',action.data+'');
+        case actionTypes.CLASSIFY_SHOW_ADD_MODAL:
+            return state.set('classifyAddModalShowOrCancel',true)
+        case actionTypes.CLASSIFY_CANCEL_ADD_MODAL:
+            return state.set('classifyAddModalShowOrCancel',false)
         default:
             return state;
     }

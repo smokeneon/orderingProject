@@ -9,3 +9,5 @@ export const GET_ALL_CATEGORIES = 'get_all_categories';
 export const TO_LOGIN_OUT = 'toLogout';
 export const CHANGE_ADMIN_SIDER_STATE='change_admin_sider_state';
 export const GET_RESPONSE_PIC_URL = 'get_response_pic_url';
+export const CLASSIFY_SHOW_ADD_MODAL =  'classify_show_add_modal';
+export const CLASSIFY_CANCEL_ADD_MODAL =  'classify_cancel_add_modal';
