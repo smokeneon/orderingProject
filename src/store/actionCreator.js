@@ -225,7 +225,9 @@ export const addDish = (dishObject)=>{
             data:Qs.stringify(data)
         }).then((res)=>{
             if(res.data.success){
-               message.success('增加菜品成功')
+               message.success('增加菜品成功');
+               history.push('/#/a/dishesadd');
+               setTimeout( ()=>  history.go(),1600);
             }else{
                 message.warning(res.data.message);
             }

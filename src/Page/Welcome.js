@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Row, Col, Button } from 'antd';
 import { SmileOutlined, WhatsAppOutlined } from '@ant-design/icons';
 import RotationChart from '../Components/Home/RotationChart ';

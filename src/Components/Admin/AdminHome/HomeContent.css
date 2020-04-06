@@ -14,3 +14,8 @@
     margin: 0 auto;
     overflow: hidden;
 }
+
+.admin_to_root_home{
+    text-align: right;
+    padding: 1rem 0;
+}

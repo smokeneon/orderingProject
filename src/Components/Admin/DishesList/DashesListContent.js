@@ -44,7 +44,7 @@ const data = [
 
 
 ];
-export default class DashesListContent extends Component {
+ class DashesListContent extends Component {
     state = {
         data: [],
         pagination: {},
@@ -136,3 +136,5 @@ export default class DashesListContent extends Component {
         )
     }
 }
+
+export default DashesListContent;
