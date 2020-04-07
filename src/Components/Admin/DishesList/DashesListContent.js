@@ -45,11 +45,15 @@ const data = [
 
 ];
  class DashesListContent extends Component {
-    state = {
-        data: [],
-        pagination: {},
-        loading: false,
-      };
+   constructor(props){
+     super(props);
+     this.state = {
+      data:[],
+      foodList: [],
+      pagination: {},
+      loading: false,
+     }
+   }
       componentDidMount() {
         axios({
           method: 'get',
@@ -61,6 +65,9 @@ const data = [
           if (res.data.success) {
             console.log(res.data)
             message.success('获取菜品成功');
+            this.setState({
+              foodList:res.data.data
+            })
           } else {
             message.warning(res.data.message);
           }
@@ -93,28 +100,28 @@ const data = [
     render() {
         return (
             <>
-                  <div style={{ padding: '1.5rem', background: '#fff', minHeight: '49rem' }}>
-                <Table dataSource={data}
+                <div style={{ padding: '1.5rem', background: '#fff', minHeight: '49rem' }}>
+                <Table dataSource={this.state.foodList}
                   // dataSource={this.state.data}
                   pagination={this.state.pagination}
                   loading={this.state.loading}
                   onChange={this.handleTableChange}
                   scroll={{ x: true, y: false }}
                 >
-                  <Column width="10%" title="编号" dataIndex="foodId" key="foodId" />
+                  <Column width="10%" title="编号" dataIndex="id" key="foodId" />
                   <Column
                     width="15%"
                     title="菜品图片"
                     key="foodPicUrl"
                     render={(text, record) => (
                       <div className="dished_list_pic">
-                        <img src={record.foodPicUrl} alt="/" />
+                        <img src={record.pic} alt="/" />
                       </div>
                     )}
                   />
-                  <Column width="35%" title="菜品名称" dataIndex="foodName" key="foodName" />
-                  <Column width="15%" title="菜品分类" dataIndex="foodClassify" key="foodClassify" />
-                  <Column width="10%" title="菜品单价" dataIndex="unitPrice" key="unitPrice" />
+                  <Column width="35%" title="菜品名称" dataIndex="name" key="foodName" />
+                  <Column width="15%" title="菜品分类" dataIndex="mealKind.name" key="foodClassify" />
+                  <Column width="10%" title="菜品单价" dataIndex="price" key="unitPrice" />
 
                   <Column
                     width="20%"
