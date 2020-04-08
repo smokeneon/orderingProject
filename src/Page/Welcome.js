@@ -4,7 +4,18 @@ import { SmileOutlined, WhatsAppOutlined } from '@ant-design/icons';
 import RotationChart from '../Components/Home/RotationChart ';
 import { Link } from 'react-router-dom';
 import './Welcome.css';
-function Welcome() {
+import { connect } from 'react-redux';
+import * as actionCreators from '../store/actionCreator';
+
+function Welcome(props) {
+    const saveIsAdminStateToFalse = ()=>{
+        sessionStorage.setItem('isAdmin','user');
+        props.isAdminToFalse();
+    }
+    const saveIsAdminStateToTrue = ()=>{
+        sessionStorage.setItem('isAdmin','admin');
+        props.isAdminToTrue();
+    }
     return (
         <>
             <Row type="flex" justify="center" >
@@ -13,10 +24,10 @@ function Welcome() {
                         <div className="welcome-content">
                             <div className="content-header">欢迎使用文理点餐平台</div>
                             <Link to="/u">
-                                <Button type="primary" size="large"><SmileOutlined />我是用户</Button>
+                                <Button type="primary" size="large" onClick={()=>saveIsAdminStateToFalse()}><SmileOutlined />我是用户</Button>
                             </Link>
-                            <Link to="/a">
-                                <Button type="primary" size="large"><WhatsAppOutlined />我是商家</Button>
+                            <Link to="/a/login">
+                                <Button type="primary" size="large" onClick={()=>saveIsAdminStateToTrue()}><WhatsAppOutlined />我是商家</Button>
                             </Link>
                             <RotationChart />
                         </div>
@@ -27,4 +38,16 @@ function Welcome() {
     )
 }
 
-export default Welcome;
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        isAdminToTrue: () => {
+            dispatch(actionCreators.welcomeSaveIsAdminToTrue())
+        },
+        isAdminToFalse: () => {
+            dispatch(actionCreators.welcomeSaveIsAdminToFalse())
+        },
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Welcome);

@@ -8,7 +8,12 @@ const history = createBrowserHistory();
 export const showModal = () => ({
     type: actionTypes.SHOW_MODAL
 });
-
+export const welcomeSaveIsAdminToTrue = () => ({
+    type: actionTypes.WELCOME_IS_ADMIN_TO_TRUE
+})
+export const welcomeSaveIsAdminToFalse = () => ({
+    type: actionTypes.WELCOME_IS_ADMIN_TO_FALSE
+})
 export const cancelModal = () => ({
     type: actionTypes.CANCEL_MODAL
 })
@@ -135,8 +140,18 @@ export const toLogin = (LoginObject)=>{
                 dispatch(loginSuccessSaveState(res.data.message));
                 // 登录成功保存状态和token到sessionStroge
                 sessionStorage.setItem('isLogin',res.data.success);
-                sessionStorage.setItem('token',res.data.message)
+                sessionStorage.setItem('token',res.data.message);
+                var isAdmin = sessionStorage.getItem('isAdmin');
+                console.log(isAdmin);
+                
+                //判断是不是管理员登录
+                if(isAdmin == 'admin'){
+                    history.push('/#/a/');
+                    setTimeout( ()=>  history.go(),1600);
+                }
                 dispatch(cancelModal());
+                
+               
             }else{
                 message.warning(res.data.message);
             }
@@ -327,6 +342,38 @@ export const editCategory = (oldCategoryName,newCategoryName)=>{
 
         }).catch((error)=>{
             message.error('修改分类失败：',error);
+        })
+    }
+}
+
+//删除菜品通过id
+export const deleteDishById = (dishId)=>{
+    return (dispatch) => {
+        let data = {
+            id:dishId
+        };
+        console.log('actionCreator data',data); 
+        axios({
+            method:'delete',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Authority':sessionStorage.getItem('token')
+            },
+            url:'/api/m/admin/meal/'+dishId,
+            data:Qs.stringify(data)
+        }).then((res)=>{
+            console.log(res);
+            
+            if(res.data.success){
+               message.success('删除菜品成功');
+               history.push('/#/a/disheslist');
+               setTimeout( ()=>  history.go(),1600);
+            }else{
+                message.warning(res.data.message);
+            }
+
+        }).catch((error)=>{
+            message.error('删除菜品失败：',error);
         })
     }
 }

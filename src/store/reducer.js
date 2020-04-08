@@ -2,6 +2,7 @@ import {fromJS} from 'immutable';
 import * as actionTypes from './actionTypes'
 
 const defaultState = fromJS({
+    isAdmin:false,
     modalVisible:false,
     showRegisterOrLoginMain:false,
     allowSendCode:true,
@@ -15,6 +16,11 @@ const defaultState = fromJS({
 
 export default (state=defaultState,action) => {
     switch (action.type){
+        //欢迎界面保存是否是管理员状态
+        case actionTypes.WELCOME_IS_ADMIN_TO_TRUE:
+            return state.set('isAdmin',true);
+        case actionTypes.WELCOME_IS_ADMIN_TO_FALSE:
+            return state.set('isAdmin',false);
         // 打开登录注册弹窗
         case actionTypes.SHOW_MODAL:
             return state.set('modalVisible',true);

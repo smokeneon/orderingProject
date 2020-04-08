@@ -10,8 +10,8 @@ export default class AdminLoginComponent extends Component {
 
                 <div className="admin_login_panel">
 
-                        <Col xs={0} sm={0} md={8} lg={8} xl={8}></Col>
-                        <Col xs={24} sm={24} md={8} lg={8} xl={8}>
+                        <Col xs={1} sm={1} md={4} lg={9} xl={9}></Col>
+                        <Col xs={22} sm={22} md={16} lg={6} xl={6}>
 
                             <div className="admin_login_area">
                                 <div className="login_title">欢迎使用文理订餐后台</div>

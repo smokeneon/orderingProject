@@ -96,6 +96,17 @@ class Header extends Component {
                                    
                                     </SubMenu>
 
+                                    <SubMenu
+                                    title={
+                                        <Link to="/">
+                                        <span className="inner_userBtn">
+                                            <Icon type="home" /> 主页
+                                        </span>
+                                        </Link>
+                                    }
+                                    >
+                                    </SubMenu>
+
                                   
                                 </Menu>
                                 {/* 通过this.props.showModal进行显示Modal */}
