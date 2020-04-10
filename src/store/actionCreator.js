@@ -53,7 +53,7 @@ export const getRegisterCode = (username) => {
             url:'/api/authentication/vccode',
             data:Qs.stringify(data)
         }).then((res)=>{
-            console.log(res.data)
+            // console.log(res.data)
             message.success(res.data.message);
             // history.push('/#/');
             // setTimeout( ()=>  history.go(),1600);
@@ -135,14 +135,14 @@ export const toLogin = (LoginObject)=>{
             data:Qs.stringify(data)
         }).then((res)=>{
             if(res.data.success){
-                console.log(res.data)
+                // console.log(res.data)
                 message.success('登录成功');
                 dispatch(loginSuccessSaveState(res.data.message));
                 // 登录成功保存状态和token到sessionStroge
                 sessionStorage.setItem('isLogin',res.data.success);
                 sessionStorage.setItem('token',res.data.message);
                 var isAdmin = sessionStorage.getItem('isAdmin');
-                console.log(isAdmin);
+                // console.log(isAdmin);
                 
                 //判断是不是管理员登录
                 if(isAdmin == 'admin'){
@@ -189,7 +189,7 @@ export const getAllCategories = ()=> {
             url:'/api/m/mealKind',
         }).then((res)=>{
             if(res.data.success){
-                // console.log(res.data)
+                console.log(res.data)
                 dispatch(getAllCategoriesList(res.data.data));
             }else{
                 message.warning(res.data.message);
@@ -226,7 +226,7 @@ export const addDish = (dishObject)=>{
             mealKind:dishObject.dishCategory,
             picUrl:dishObject.dishPicture.file.response.data
         }
-        console.log('actionCreator data',data);
+        // console.log('actionCreator data',data);
         
         
         
@@ -260,7 +260,7 @@ export const addCategory = (categoryName)=>{
         let data = {
             name:categoryName
         };
-        console.log('actionCreator data',data); 
+        // console.log('actionCreator data',data); 
         axios({
             method:'post',
             headers: {
@@ -290,7 +290,7 @@ export const deleteCategory = (categoryName)=>{
         let data = {
             name:categoryName
         };
-        console.log('actionCreator data',data); 
+        // console.log('actionCreator data',data); 
         axios({
             method:'delete',
             headers: {
@@ -321,7 +321,7 @@ export const editCategory = (oldCategoryName,newCategoryName)=>{
             oldName:oldCategoryName,
             newName:newCategoryName
         };
-        console.log('actionCreator data',data); 
+        // console.log('actionCreator data',data); 
         axios({
             method:'put',
             headers: {
@@ -352,7 +352,7 @@ export const deleteDishById = (dishId)=>{
         let data = {
             id:dishId
         };
-        console.log('actionCreator data',data); 
+        // console.log('actionCreator data',data); 
         axios({
             method:'delete',
             headers: {
@@ -362,7 +362,7 @@ export const deleteDishById = (dishId)=>{
             url:'/api/m/admin/meal/'+dishId,
             data:Qs.stringify(data)
         }).then((res)=>{
-            console.log(res);
+            // console.log(res);
             
             if(res.data.success){
                message.success('删除菜品成功');
@@ -378,4 +378,59 @@ export const deleteDishById = (dishId)=>{
     }
 }
 
+// 前台用户部分
 
+//获取全部菜品
+
+
+export const getAllDishes = ()=> {
+    return (dispatch) => {
+        axios({
+            method:'get',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            url:'/api/m/meal',
+        }).then((res)=>{
+            if(res.data.success){
+                //成功后改变仓库内容
+                dispatch(getSelectKeyDishesList(res.data.data));
+            }else{
+                message.warning(res.data.message);
+            }
+            
+        }).catch((error)=>{
+            message.error('获取失败：',error);
+        })
+    }
+}
+
+
+//根据用户选择的id去更改渲染home菜品列表
+//将拿到的菜品列表放到仓库中
+export const getSelectKeyDishesList = (dishesData)=>({
+    type:actionTypes.HOME_DISHES_LIST,
+    data:dishesData
+})
+
+export const changeHomeDishesList = (selectKey)=> {
+    return (dispatch) => {
+        axios({
+            method:'get',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            url:'/api/m/meal/kind/'+selectKey,
+        }).then((res)=>{
+            if(res.data.success){
+                // console.log(res.data)
+                dispatch(getSelectKeyDishesList(res.data.data));
+            }else{
+                message.warning(res.data.message);
+            }
+            
+        }).catch((error)=>{
+            message.error('获取失败：',error);
+        })
+    }
+}

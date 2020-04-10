@@ -11,11 +11,15 @@ class Classification extends Component {
       };
     
     handleClick = e => {
-        console.log('click ', e.item.props.children);
+        const selectKey = e.item.props.eventKey
+        console.log('click ', selectKey);
+        this.props.changeHomeDishesList(selectKey)
       };
     render() {
 
         const data = this.props.homeCategoriesList;
+        
+        
         return (
             <>
               <Affix offsetTop={this.state.top}>
@@ -24,7 +28,7 @@ class Classification extends Component {
                   
                     <Menu
                             onClick={this.handleClick}
-                            defaultSelectedKeys={['0']}
+                            // defaultSelectedKeys={['0']}
                             defaultOpenKeys={['sub1']}
                             mode="inline"
                         >
@@ -32,7 +36,7 @@ class Classification extends Component {
                                 <Menu.ItemGroup key="g1" title="">
                                     {
                                         data.map((item,index)=>{
-                                        return <Menu.Item key={index}>{item.name}</Menu.Item>
+                                        return <Menu.Item key={item.id}>{item.name}</Menu.Item>
                                         })
                                     }
                                     
@@ -48,6 +52,7 @@ class Classification extends Component {
 
     componentDidMount(){
         this.props.getAllCategories();
+        this.props.getAllDishes();
     }
 }
 
@@ -61,6 +66,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         getAllCategories: () => {
             dispatch(actionCreators.getAllCategories())
+        },
+        getAllDishes:() => {
+            dispatch(actionCreators.getAllDishes())
+        },
+        changeHomeDishesList:(selectKey) => {
+            dispatch(actionCreators.changeHomeDishesList(selectKey))
         }
     }
 }

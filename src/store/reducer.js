@@ -11,6 +11,7 @@ const defaultState = fromJS({
     dishesCategoriesList:[],
     adminSiderSelectedState:'1',
     classifyAddModalShowOrCancel:false,
+    homeDishesList:[]
 
 });
 
@@ -53,7 +54,9 @@ export default (state=defaultState,action) => {
         case actionTypes.CLASSIFY_SHOW_ADD_MODAL:
             return state.set('classifyAddModalShowOrCancel',true)
         case actionTypes.CLASSIFY_CANCEL_ADD_MODAL:
-            return state.set('classifyAddModalShowOrCancel',false)
+            return state.set('classifyAddModalShowOrCancel',false);
+        case actionTypes.HOME_DISHES_LIST:
+            return state.set('homeDishesList',action.data)
         default:
             return state;
     }

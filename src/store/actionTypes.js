@@ -15,3 +15,5 @@ export const CLASSIFY_SHOW_ADD_MODAL =  'classify_show_add_modal';
 export const CLASSIFY_CANCEL_ADD_MODAL =  'classify_cancel_add_modal';
 //删除一个菜品
 export const DELETE_DISH_BY_ID =  'delete_dish_by_id';
+//用户部分
+export const HOME_DISHES_LIST = 'home_dishes_list';
