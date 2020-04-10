@@ -12,8 +12,13 @@ class Classification extends Component {
     
     handleClick = e => {
         const selectKey = e.item.props.eventKey
-        console.log('click ', selectKey);
-        this.props.changeHomeDishesList(selectKey)
+        if(selectKey == 'all'){
+            this.props.getAllDishes()
+        }else{
+            this.props.changeHomeDishesList(selectKey)
+        }
+        // console.log('click ', selectKey);
+       
       };
     render() {
 
@@ -28,12 +33,13 @@ class Classification extends Component {
                   
                     <Menu
                             onClick={this.handleClick}
-                            // defaultSelectedKeys={['0']}
+                            defaultSelectedKeys={['all']}
                             defaultOpenKeys={['sub1']}
                             mode="inline"
                         >
-                           
+                              
                                 <Menu.ItemGroup key="g1" title="">
+                                    <Menu.Item key="all">全部菜品</Menu.Item>
                                     {
                                         data.map((item,index)=>{
                                         return <Menu.Item key={item.id}>{item.name}</Menu.Item>
